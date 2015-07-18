@@ -63,9 +63,6 @@ $('.bt-overlay').click(function() {
 
 /*Кнопка открытия скрытия доп информации в разделе общая статистикка*/
 
-/*Скрываем блок с деталямми Профиль-Общая статистика*/
-$(".statistic_details").hide();
-
 
 
 /*Вставлякм кнопку Подробнее/Скрыть в Профиль-Общая статистика*/
@@ -73,28 +70,37 @@ $(".statistic_details").before('<!--Кнопка подробней--><div class
 
 
 /*Вставляем кнопку Показать скрыть доп инфу в Профиль - Персональная информация*/
-$(".profil-info>div:nth-of-type(4)").after('<!--Кнопка подробней--><p class="switchText profil-info_other-inf" ><span class="inline-block switchText_text">Дополнительная информация</span><span class="inline-block switchText_text">Основная информация</span></p>');
+$(".profil-info").append('<!--Кнопка подробней--><p class="switchText profil-info_other-inf btn_1 inline-block icon_append" ><span class="inline-block switchText_text">Дополнительно...</span><span class="inline-block switchText_text">Основное</span><i></i></p>');
 
 /*Скрываем блоки с деталями Профиль - Персональная информация после конпки переключателя*/
-$(".profil-info_other-inf ~ div").hide();
+/*Скрываем блок с деталямми Профиль-Общая статистика*/
+$(".statistic_details, .profil-info>div:nth-child(5) ~ div").hide();
+
+
+/*Переключает классы при нажатии на кнопки*/
+$(".profil-info_other-inf, .statistic_detailsButton").click(function() {
+/*Выделяем кнопку	*/
+$(this).toggleClass("btn_active");
+});
 
 /*Переключение информации в Профиль - Персональная информация*/
 $(".profil-info_other-inf").click(function() {
 /*Скрывает открывает блок*/
-$(".profil-info_other-inf ~ div").toggle( );
+$(".profil-info>div:nth-child(5) ~ div").toggle( );
 });
 
 
 /*Переключение информации в Профиль-Общая статистика*/
 $(".statistic_detailsButton").click(function() {
-/*Выделяем кнопку	*/
-$(this).toggleClass("statistic_details_active");
 /*Скрывает открывает блок*/
 $(".statistic_details").toggle();
 });
 
+
 /*Кнопка  с переключающимися надписями 
-(Профиль-общая статистика-подробнее)*/
+(Профиль-общая статистика-подробнее, 
+Профиль-Персональная информация,)
+*/
 
 /*Скрываем первую надпись*/
 $(".switchText .switchText_text:nth-child(2)").hide();

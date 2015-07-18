@@ -673,11 +673,16 @@ background-color: @text-color;}
 		.my_font-size(11, 14);
 		padding-left: 5px;
 		padding-right:5px;
+		margin-bottom:5px;
 		}
 		
 			div span:first-child{ 
 			float:left;
 			font-weight:normal;
+			.btn--background--radius;
+			padding:  0px 5px;	
+			color: @text-color;
+
 			}
 			
 			div span:last-child{
@@ -707,11 +712,10 @@ background-color: @text-color;}
 		.my_font-size(26, 14);
 		}
 		
-		/*Переключатель доп инф*/
-		.profil-info_other-inf{
-			.pointer;
-			&:hover span{text-decoration:underline;}
-			}
+		/*Кнопка "Дополнительно"*/
+		.profil-info_other-inf{.my_font-size(14, 14);}
+		
+
 		
 /*	Класс устанавливающий границу для блоков */
 	.profil_block--dotted
@@ -739,45 +743,11 @@ background-color: @text-color;}
 			/*Пропущенніе дни*/
 			.CountMissDays{color:red;}
 			
-			/*Кнопка с местом для иконки в конце*/
-			.icon_append{
-			padding-right:60px;
-			position:relative;
 			
-			/*Иконка стрелки внутри кнопки*/
-				i{
-				position:absolute;
-				right: 3px;
-				top:50%;
-				width: 40px;
-				height: 40px;
-				margin-top: -44px / 2;
-				background-image:url(../images/Arrow_down_48.png);
-				background-position:  center;
-				background-repeat:no-repeat;
-				border-radius: 50%;
-				border: 1px solid rgba(0, 0, 0, 0.5);
-				box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3) inset,
-				0px 1px 2px rgba(255, 255, 255, 0.5);
-				 .my_opacity(0.7);
-				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=70)";
-				}
-				
-				&:hover i{
-				background-color:@header-color;
-				background-color: rgba(255, 255, 255, 0.6);
-				 .my_opacity(1);
-				 -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=100)";
-				}
-				
-				&:active i{.transform(scale(1.4));}
-			}
 			
 			/*Если вкладка развернута*/
 			
-				.statistic_details_active  i{
-				background-image:url(../images/Arrow_up_48.png);	
-				}
+				
 	}
 		
 		
