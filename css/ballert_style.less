@@ -1,0 +1,1103 @@
+
+/*Стили очистки и миксины*/
+@import "muxin_default.less";
+
+
+body {
+width: 100%;
+font:14px /1.7em  Arial , sans-serif; 
+}
+
+ .all{ 
+ position:relative;
+height: auto;
+margin: 0px auto;
+width: @min_mob_cite_width;       
+text-align:center;
+background-color: @text-color;}
+ 
+
+/*Стили для основной страницы---------------------------------------*/
+
+
+	.header{ position:relative;}
+	
+	/*  Контейнер с кнопками в верхнем заголовке*/
+	
+	.header_button-container{
+	position:absolute; 
+	right:0px;
+	top: 0px;
+	width: 20%;
+	min-width: 220px;
+	height: 100%;
+	padding-top: 10px;
+	padding-right: 15px;
+	
+	
+		&>*{
+			margin-bottom: 15px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			.my_font-size(16, 14);
+			}
+			
+		/*Кнопка ссылкой внутри*/
+		.buttonHasHyperlink{
+		/*Убираем паддинги*/	
+		padding: 0px;
+		
+		/*Добавляем ссылке падинги равные падингам аналогичной кнопки без ссылки*/
+			a{  padding: 5px 10px;  }	
+		
+		}
+			
+	}
+	
+	
+/*	Стили для двойных заголовков вверху страниц сразу под хедером*/
+	h1{
+		.my_font-size(28, 14);
+		font-family: "Eras Bold ITC";
+		text-transform:uppercase;
+		line-height:1.2em;
+	}
+	
+	h1,h2{padding-top: 10px;}
+	
+	h1+h3,
+	h2+h3 {
+		padding-top: 0px;
+		} 
+	
+		
+/*	 	Текстовое содержимое блоков*/
+		.main article{
+		.clearfix;
+		
+			p,
+			blockquote{	
+			padding: 2.5px 5px;
+			}
+		
+			p{
+			text-indent: 5px;
+			text-align:justify;
+			.word-wrap;
+			}
+			
+			/*	Цитаты*/
+			blockquote{
+			font-style:italic;		
+			}	
+		}
+			  	 
+/*Картинкм*/
+/*Ширина картинок для*/
+
+/*малых экранов*/
+@mob-device_img_max_width:100%;
+
+/*Стандартных*/
+@desctop_img_max_width:70%;
+
+/*больших*/
+@min-full-screen_img_max_width:60%;
+
+/*очень больших*/
+@max-full-screen_img_max_width:30%;
+
+	 img {max-width: @mob-device_img_max_width;}
+	 
+/*	 класс для картинки которая не должна сдвигатся*/
+	 .article_img-center--no-float{float:none;}
+	
+/*	Форма для демонстрации*/
+
+	.demonctration form,
+	.profil_page_news form{
+	width: 60%;
+	.clearfix;
+ 
+/* Стили для первого контейнера с инпутом для ввода даты*/
+	   &>label:first-of-type,
+	   p
+	   { text-align:center;}
+	   
+	  &>label:first-of-type{
+	  width: 100%;
+	  float:none;
+	  }
+	  
+	   
+	}
+	
+	
+	/*	Форма для входа в профиль*/
+	.entrance{
+	clear:both;
+	
+	
+	label{max-width: @mob_cite_width;}
+	
+	}
+	
+	/*Поля в форме регистрации и форме ввода*/
+	.reg , .entrance{
+		 
+		 fieldset{
+			  background: @header-color;
+			  border: 0;
+			  padding-top: 10px;}
+			
+			
+					button{
+					padding:  5px 15px;
+					margin-left: 10px;
+					margin-right:10px;
+					}
+					
+					label input{width: 50%;}
+	}
+	
+	
+	
+	/*Форма регистрации-------------------------------------------------------------------*/
+	
+
+	 /*Ширина формы регистрации*/
+	
+/*Для больших экранов	 */
+@reg_double_width:@reg_width *2.4 ;	
+
+/*Для средних*/
+@reg_width: 320px;
+
+/*Для малых*/
+@min_mob_reg_width: 305px;
+	
+	/*Класс для сокрыия закрытия меню*/
+	.js-reg{
+	z-index: 11;
+    position:absolute;	
+	left: 50%;
+	.transition(0.0001);
+	margin-left: -@min_mob_reg_width / 2;
+	}
+	
+	
+/*	Если верхняя кнопка вызывает*/
+	.reg_top-place{
+	top: 0px;	
+		} 
+		
+	/*Если нижняя кнопка вызывает*/
+	.reg_bottom-place{
+	bottom: 0px;	
+		}	
+	
+/*	Стили для формы регистрации*/
+	.reg{	
+	.my_width(@min_mob_reg_width, @min_mob_cite_width);
+	padding-top: 10px;
+	background: @text-color;
+	border-radius: 15px;
+	
+		label{ padding-left: 5px;
+		
+			
+		}
+	
+	}
+	
+/*	Класс при котором форма скрыта*/
+	  .hidden_Block{  
+	  .transition(0.0001);
+	  left:-99999px;
+	  }
+	  
+/*	  Стили для рядов в форме регистрации*/
+		.reg_row{
+			 .clearfix;
+			}
+		
+/*	Стиль для проверочной картинки	*/
+		.reg img {
+		width: 70px;
+		}
+		
+		/*Для полей и кнопки в форме регистрации*/
+		.reg fieldset{ 
+		padding-bottom: 15px;
+		border-radius: 0px 0 15px 15px;}
+		
+			.reg fieldset button{ 
+			margin: 0 auto;}
+			
+			
+			/*Заменитель кнопки "прикрепить файл"*/
+		  #chose_file{
+		  padding-left: 25px;
+		  }
+		  
+		 /* Элемнт с назваием файла*/
+		  #chose_file_text{
+		  padding-left: 10px;
+		  overflow:hidden;
+		    .my_font-size(12, 14);
+		  }
+		   
+		  /* Скрываем кнопку*/
+		  input[type="file"]{
+		  display: none;
+		  }
+		  
+		  /*Стили для элемента заменителя*/
+		  #chose_file.btn_1 { 
+		  padding-top:5px; 
+		  padding-bottom:5px;
+		  margin-bottom: 0px;
+		   .my_font-size(14, 14);
+		   background-image:url(../images/Attachment_48.png) ;
+		   background-position:left center ;
+		   background-repeat:no-repeat;
+		   background-size: 24px;
+		  }
+		
+			
+	
+/*	Блок затемнения*/
+	
+	.bt-overlay {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=70)";
+	background:@Base-color2;
+	background:rgba(0,0,0,0.50) ;
+	}
+/* Конец стилей для основной страницы-------------------------*/
+
+
+
+
+
+/*Медизапросы--------начинвем с малых----------------------------------------*/
+
+
+
+
+
+/*Если экран больше 320---------------------------------------------------------------------------------*/
+@media screen and (min-width:  @mob_cite_width) {
+	
+
+  .all{ width: @mob_cite_width;}	
+  
+
+  
+  /* Заголовки*/
+ 
+  
+/*  Стили для содержимого блоков*/
+
+  
+/*  Стили для картинок*/
+
+/*Стили для формы*/
+
+
+    .js-reg{
+	margin-left: -@reg_width / 2;
+	}
+	
+	.reg{
+		.my_width(@reg_width, @mob_cite_width);
+	}
+	 
+	
+}
+
+
+
+
+
+
+/*Если экран больше 360---------------------------------------------------------------------------------*/
+@media screen and (min-width:@max_mob_cite_width) {
+	
+  .all{ width: @max_mob_cite_width;}	
+  
+
+  
+  /* Заголовки*/
+ 
+  
+/*  Стили для содержимого блоков*/
+
+  
+/*  Стили для картинок*/
+
+/*Стили для формы*/
+	.reg{
+		.my_width(@reg_width, @max_mob_cite_width);
+	}
+
+}
+
+
+
+
+/*Если экран больше 768---------------------------------------------------------------------------------*/
+@media screen and (min-width: @mapcase_cite_width) {
+	
+
+  .all{ width: @mapcase_cite_width;}	
+  
+  
+  /* Заголовки*/
+ 
+  
+/*  Стили для содержимого блоков*/
+
+
+  
+/*  Стили для картинок*/
+
+
+/*Стили для формы*/
+
+/*Выстраивает чекбоксы в 3 строки*/
+.demonctration, .profil_page_news {
+	
+		form{
+		width: 70%;	
+		}
+		
+		 label{
+		width: 100% / 2;
+		float:left;
+		}	
+		
+	}
+	
+
+
+	.reg{
+		.my_width(@reg_width,  @mapcase_cite_width);	
+		
+	}
+}
+
+
+
+
+/*Если экран больше 850---------------------------------------------------------------------------------*/
+@media screen and (min-width: 850px) {
+	
+	/*  Стили для содержимого блоков*/
+	article img~p {
+	margin-left:@desctop_img_max_width + 1%;		 
+	}
+	
+	/*  Стили для картинок*/
+	
+	article img {
+	float:left;	 
+	max-width: @desctop_img_max_width;}
+	
+	/*Стили для формы*/
+	
+
+}
+
+
+
+/*Если экран больше 1024---------------------------------------------------------------------------------*/
+@media screen and (min-width: @desctop_min_cite_width) {
+	
+  .all{ width: @desctop_min_cite_width;}	
+  
+  	 
+  /* Заголовки*/
+ 
+  
+/*  Стили для содержимого блоков*/
+
+  
+
+  
+/*  Стили для картинок*/
+
+
+
+
+/*Стили для формы*/
+
+/*Выстраивает чекбоксы в 2 строки*/
+.demonctration, .profil_page_news{
+	
+		form{
+		width: 70%;	
+		}
+		
+		 label{
+		width: 100% / 3;
+		}	
+		
+	}
+
+	.reg{
+		.my_width(@reg_width, @desctop_min_cite_width);	
+	}
+}
+
+
+
+
+/*Если экран больше 1260---------------------------------------------------------------------------------*/
+@media screen and (min-width: @desctop_full_cite_width) {
+	
+	body {
+	width: 100%;
+	font:16px /1.7em  Arial , sans-serif;  
+	}
+
+  .all{ 
+  width: 90%;
+  }	
+  
+  	 
+  /* Заголовки*/
+ 
+  
+	/*  Стили для содержимого блоков*/
+	article img~p {
+	margin-left:@min-full-screen_img_max_width+ 1%;		 
+	}
+	
+	/*  Стили для картинок*/
+	
+	article img { 
+	max-width: @min-full-screen_img_max_width;}
+
+
+
+/*Стили для формы*/
+
+	
+	.entrance>*{
+		width:100% / 3;
+		float:left;	
+			}
+
+	.js-reg{
+	margin-left: -@reg_double_width / 2;
+	}
+	
+/*	Ширина формы регистрации увеличивается в два раза*/
+	.reg{
+		.my_width(@reg_double_width, @desctop_full_cite_width);
+
+		
+		label{
+		float:left;	
+		width:100% / 2;	
+			
+		}
+		
+	/*	Строки формы регострации*/
+		.reg_row{
+		padding-bottom: 5px;
+		padding-left: 5px;
+		padding-right: 5px;
+		border-bottom:solid 1px @Base-color2;
+		}
+			
+		div:last-of-type{ border-bottom: 0px ;}
+	}
+}
+
+
+/*Если экран больше 1260---------------------------------------------------------------------------------*/
+@media screen and (min-width: @desctop_max_full_cite_width) {
+
+ .all{ 
+  max-width: 80%;
+  }	
+  
+  .header img{height: 600px;}
+  
+  .header_button-container{
+	left:50%;
+	margin-left: -10%;  
+	  }
+  	 
+  /* Заголовки*/
+ 
+  
+	/*  Стили для содержимого блоков*/
+	article img~p {
+	margin-left:@max-full-screen_img_max_width + 1%;		 
+	}
+	
+	/*  Стили для картинок*/
+	
+	article img {
+	max-width:@max-full-screen_img_max_width;}
+
+
+
+/*Стили для формы*/
+
+/*Выстраивает чекбоксы в 1 строку*/
+.demonctration, .profil_page_news{
+	
+		form{
+		width: 90%;	
+		}
+		
+		 label{
+		width: 100% / 6;
+		float:left;
+		}		
+	}
+	
+	
+	.entrance{ 
+	width: @desctop_full_cite_width;
+	 }
+	 
+	.js-reg{
+	margin-left: -((100% / 3)* 2)/ 2;
+	}
+
+/*Делает ширину формы регистрации равной 2 третям от ширины страницы*/
+	.reg{
+		width: (100% / 3)* 2;
+	}
+}
+/* Конец основных медиазапросов.................................................*/
+
+
+
+
+/*СТИЛИ ДЛЯ СТРАНИЦЫ ПРОФИЛИ..................................................*/
+
+/*	Отступы по  краям*/
+	@profil_edge-padding:2.5%;
+	
+/*	Ширина без отступов*/
+    @profil_width-not-padding: 100% - (@profil_edge-padding * 2);
+	
+   @width-double_divide: @profil_width-not-padding / 2;
+   
+   @width-third_divide: @profil_width-not-padding / 3;
+	
+	
+.profil_page{
+
+	header{	
+	.box-sizing(padding-box);
+	padding-bottom: 15px;	
+	padding-top: 15px;
+	font-weight: bold;
+	.my_font-size(28, 14);
+	line-height: 1.5em;	
+	 
+}
+	
+/*Кнопка выйти в заголовке хедера	*/
+		.header_button--exit{
+		width: 120px;
+		padding:0px 3px;
+		position:relative;
+		
+		  i{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -20px;
+   .my_opacity(0);
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";
+	background:url(../images/Logout%2048x48.png) 120% center no-repeat;
+	background:url(../images/Logout%20128x128.png) right center no-repeat;
+	background-size: 60px;
+	}
+	
+		span,i{.transition(0.4s)}
+		
+		&:hover span{ 
+		.my_opacity(0);
+		.transform(translateX(-20px));
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";
+		}
+		
+		&:hover i{
+		.my_opacity(1);
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=100)";
+		left: -0px;
+		}
+		
+		&:active i {
+		transition: none; 
+		background:url(../images/Logout%20128x128.png) 128% center no-repeat;
+		background-size: 60px;
+		}
+	}	
+	
+
+	
+	article{
+	 margin-bottom: 10px;
+	 width:@profil_width-not-padding;
+	 .center-block;
+	 }
+	 
+	
+/*Блок с персональной информацией	*/
+	.profil-info{
+	position: relative;	
+	min-height: 200px;	
+	padding-left: 100px;
+	padding-top: 15px;
+	color:@Base-color2;
+	font-weight: bold;
+	
+		div{
+		.clearfix;
+		.my_font-size(11, 14);
+		padding-left: 5px;
+		padding-right:5px;
+		}
+		
+			div span:first-child{ 
+			float:left;
+			font-weight:normal;
+			}
+			
+			div span:last-child{
+			float:right;
+			}
+	}
+	
+	/*Контейнер с фото*/
+		.profil-info_foto{
+		position: absolute;
+		left: 5px;
+		top: 15px;	
+		max-width: 100px;
+		height: 80%;
+		 
+		
+			img{ 
+			float:none;
+			width: 100%;
+			.center-block;
+			border: dotted 3px @Base-color2;
+			max-width: 90px;
+			}
+		}
+		
+		.name{
+		.my_font-size(26, 14);
+		}
+		
+		/*Переключатель доп инф*/
+		.profil-info_other-inf{
+			.pointer;
+			&:hover span{text-decoration:underline;}
+			}
+		
+/*	Класс устанавливающий границу для блоков */
+	.profil_block--dotted
+	{
+	color:@Base-color2;
+	border: dotted 3px @Base-color2 ;
+	}
+	
+
+	.all-statistic,
+	.friends-subscriber{
+	padding-top: 20px;
+	padding-bottom:	20px;
+	}
+	
+	.all-statistic {
+			
+			legend{text-align:left;}
+			
+			span, time{font-weight:bold;}
+			
+			/*Записаннве дни*/
+			.allCountDays{color:green;}
+			
+			/*Пропущенніе дни*/
+			.CountMissDays{color:red;}
+			
+			/*Кнопка с местом для иконки в конце*/
+			.icon_append{
+			padding-right:60px;
+			position:relative;
+			
+			/*Иконка стрелки внутри кнопки*/
+				i{
+				position:absolute;
+				right: 3px;
+				top:50%;
+				width: 40px;
+				height: 40px;
+				margin-top: -44px / 2;
+				background-image:url(../images/Arrow_down_48.png);
+				background-position:  center;
+				background-repeat:no-repeat;
+				border-radius: 50%;
+				border: 1px solid rgba(0, 0, 0, 0.5);
+				box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3) inset,
+				0px 1px 2px rgba(255, 255, 255, 0.5);
+				 .my_opacity(0.7);
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=70)";
+				}
+				
+				&:hover i{
+				background-color:@header-color;
+				background-color: rgba(255, 255, 255, 0.6);
+				 .my_opacity(1);
+				 -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=100)";
+				}
+				
+				&:active i{.transform(scale(1.4));}
+			}
+			
+			/*Если вкладка развернута*/
+			
+				.statistic_details_active  i{
+				background-image:url(../images/Arrow_up_48.png);	
+				}
+	}
+		
+		
+		.statistic_progressBar{
+		position:relative;
+		height:22px;
+		border: @Base-color2 solid 2px;
+		margin-bottom: 10px;
+		border-radius: 4px;
+		}
+		
+		
+			.progressBar_progress{ 
+			background:@header-color;
+			height: 100%;
+			.striped(@color:  darken(@header-color, 8%); @angle: 45deg);
+			.striped(@color: rgba(255,255,255,.15); @angle: 45deg);
+			}
+			
+			/*Надпись на прогрессс баре*/
+			.progressBar_value{
+		    position:absolute;
+			left: 45%;
+			top: -20%;
+			}
+			
+		
+	.friends-subscriber{.doudle_column;}	
+		
+	
+	.all-statistic{
+	padding-left: 15%;
+	padding-right:15%;	
+	}	
+	
+	
+/*	Убираем фон для самого верхнего заголовка в блоке "Новости на сегодня"*/
+		.profil_page_news>*:nth-child(1){
+		background: none;	
+		color:@Base-color2;	
+		}
+		
+	/*Стили для чекбоксов	*/
+
+/*Стиль для блока с чекбоксами	*/
+#form_Checkboxes{.clearfix;}
+	
+#Checkboxes1 .ui-corner-left,
+#Checkboxes1 .ui-corner-right{border-radius: 0px;}
+#Checkboxes1 .ui-widget {.my_font-size(12, 14)}
+
+	
+/*Стили для неотмеченных кнопок*/	
+	.ui-state-default{
+	.transition(0s);
+	border: 1px solid @Base-color2;
+	background-color:  @text-color;
+			
+	&:hover{
+	background-color:  darken(@text-color, 15%);
+	box-shadow: 0px 0px 1px 2px darken(@text-color, 15%)   inset;}
+				
+	&,	&:hover{
+	background-image:url(../images/Checkbox_empty_48.png) ;
+	background-position:left center;
+	background-repeat:no-repeat;
+	background-size:35px;}	
+				
+	}
+
+
+/*Стили для отмеченных кнопок*/
+
+
+	.ui-state-active{
+	background-color: @header-color;
+	
+	&:hover{
+		 background-color:  darken(@header-color, 15%);
+		box-shadow: 0px 0px 1px 2px darken(@header-color, 15%)   inset;}
+	
+	&,	&:hover{background-image:url(../images/Checkbox_48.png) ;}
+		
+    }
+	  
+/*Стили для текстового блока спан внутри кнопок-чекбоксов	 */ 
+	  
+	  	.ui-button-text-only .ui-button-text {
+    padding: 0.5em 5px;
+	padding-left: 43px;
+	}
+	
+	.profil_page_news input[type="button"]	{margin-top: 10px;}
+
+
+/*Медиаскрины для чекедов */
+
+	
+@media screen and (max-width: 767px ) {
+	
+	#Checkboxes1 label{ display:block;
+	width: 100%;
+	}
+	
+	.ui-button-text-only .ui-button-text {
+    padding: 0.9em 1em;
+	}
+	
+	#Checkboxes1		.ui-widget {
+     .my_font-size(14, 14)}
+	}
+	
+		
+ /*	Цветовая схема таба*/
+		
+		.otput-statistic_tabs--my-theme{
+		font-family:Arial , sans-serif;
+		.my_font-size(14, 14);	
+		
+			ul{
+			background:darken(@header-color, 8%);}
+
+
+				li {
+				border-color:darken(@header-color, 14%);
+				background: @header-color;	
+				box-shadow: -2px -5px 1.72px 2px rgba(0, 0, 0, 0.15) inset,
+				2px 5px 1.72px 2px rgba(255, 255, 255, 0.15) inset,
+				0px 0px 0px 1px rgba(0, 0, 0, 0.4) ;}
+				
+					a{  color:@text-color;}
+					
+					li:hover{
+					background: darken(@header-color, 9%);	
+					box-shadow: -2px -5px 1.72px 2px rgba(0, 0, 0, 0.20) inset,
+					2px 5px 1.72px 2px rgba(255, 255, 255, 0.3) inset,
+					0px 0px 0px 1px rgba(0, 0, 0, 0.4) ;	
+						
+						}	
+				
+				/*Стили для кнопки активного таба*/
+				.ui-tabs-nav .ui-tabs-active, 
+				.ui-tabs-nav .ui-tabs-active:hover{
+				background:@text-color;
+				box-shadow: none;
+			
+				}
+					.ui-tabs-nav .ui-tabs-active a{ color:@Base-color2;}
+					 .ui-tabs-anchor, .ui-tabs-anchor:hover, .ui-tabs-anchor:link  .ui-tabs-anchor:active{
+						 border:none;}
+		}
+}
+
+
+/*Конец стилей для странички профиля----------------------------------------------------------------------*/
+
+
+/*Медиаапросы для странички профиля----------------------------------------------------------------------*/
+
+
+/*Если экран больше 360---------------------------------------------------------------------------------*/
+@media screen and (min-width:@max_mob_cite_width) {
+	
+	
+	  /* Заголовки*/
+	  
+/*	  Сдвигает кнопку "Выйти" в заголовке страницы профиля влево*/
+		.right-button-responsive{
+		position: relative;
+		padding-right:130px;	  
+		
+			.header_button--exit{
+			position:absolute;
+			top: 12.5px;
+			right:10px;
+			width: 120px;
+			/*		top: -5px;*/	
+			}
+		}
+	  
+
+
+	
+}
+
+
+/*Медиаапрос для таба, если экран меньше платшетного*/
+@media screen and (max-width:@mapcase_cite_width) {
+	
+		/*	Стиль для вертикального таба*/
+		.tabs--vertical {
+		.clearfix;	
+		width:100%;
+	
+/*Список вкладок передвигается влево и становится горизонтальным*/
+			ul{
+			width:50%;
+			float:left;		
+			padding-bottom: 0.2em;
+			padding-right: 0px;	
+				
+				li{
+					a{
+					float:none;
+					width: 100%;
+					}
+				}
+			}
+			
+				.ui-tabs-nav .ui-tabs-active{
+				border-right: 0px; 
+				padding-bottom:0px;
+				padding-right:1px;
+				left: 3px;
+				}
+				
+				.ui-tabs-nav li{
+				border-radius:  4px 0px 0px 4px ;
+				margin: 2px 0px; 
+				white-space:normal;
+				width: 100%; }
+			
+			div{
+			width:50%;
+			margin-left: 50%;	
+			}	
+		
+		}	
+
+				/*Что бы в вертикальном расположении таба кнопка при нажатии не опускалась вниз*/
+				.ui-tabs .ui-tabs-nav li.ui-tabs-active { margin-bottom: 2px; }
+
+}
+
+/*Есл экран больше планшетного*/
+@media screen and (min-width: @mapcase_cite_width) {
+
+/*Блок с персональной информацией смещается влево*/
+	.profil_page .profil-info{
+	float:left;	
+     width:  @width-double_divide ;
+	 .doudle_column;
+	/* Устанавливает  поле слева равное отступу*/
+	 margin-left:@profil_edge-padding;
+	}
+	
+	/*Блок "Друзья" смещается вправо*/
+	.profil_page .friends-subscriber{
+	width: @width-double_divide ;
+	margin-left: @width-double_divide;
+	margin-right:@profil_edge-padding;
+	}
+	
+	.all-statistic{clear:both;}		
+	
+}
+
+/*Если экран больше стандартного*/
+@media screen and (min-width: @desctop_full_cite_width) {
+
+/*Блоки с персональной информацией, друзьями  и статистикой, выстраиваются в две колонки*/
+	.profil_page{
+		.profil-info,	
+		.friends-subscriber	,
+		.all-statistic	{
+	     width: @width-third_divide;
+		 float:left;	
+		}
+	
+		
+		/*Блок "Друзья" смещается вправо*/
+		 .friends-subscriber{
+		margin-left: auto;
+		margin-right:auto;
+		}
+		
+	/*	Происходит выравнивание  блоков "персональная информация", "друзья" и "общая статистика"*/	
+		.profil-info,
+		.friends-subscriber
+		{.third_column;}
+		
+		
+		/*Блок "Общая статистика " смещается вправо*/
+		.all-statistic
+		{clear:none;
+		padding-left: 20px;
+		padding-right:20px;		
+		margin-right:@profil_edge-padding;
+		}
+			
+		.profil_page_news{clear:both;
+		
+		form{width: 98%;}
+		}
+		
+		
+	}
+	
+}
+
+
+
+@media screen and (min-width: 1400px) {
+/*	Происходит выравнивание  блоков "персональная информация", "друзья" и "общая статистика"*/	
+
+/*При этом расширении блок "общая статистика" незначительно уменьшается, поэтому применено дополнительное выравнитвание*/
+	.profil_page{
+	.profil-info,
+	.friends-subscriber{.third_column--max_full;}
+	}
+
+}
+
+
+/*Если экран больше 1580px*/
+@media screen and (min-width: @desctop_max_full_cite_width) {
+	
+/*Увеличивает ширину контейнера с чекбоксанм на странице профиля	*/
+.profil_page
+.profil_page_news
+form{width: 98%;}
+
+}

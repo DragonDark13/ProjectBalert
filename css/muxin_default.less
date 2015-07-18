@@ -1,0 +1,408 @@
+/* LESS Document */
+
+/*default style Стили зачистки - убирают или настаивают стандартные стили браузеров*/
+
+
+*{		
+/*  Что бы не было полей и отступов по умолчанию	*/			
+margin:0  ;
+padding:  0 ;
+
+/* Устанавливает плавные переходы для всех элементов страницы	*/
+.transition(0.3s);
+} 
+
+/*Убирает значки у элементов списка*/
+ul{list-style:none;}  
+
+/*Убирает подчеркивание и устанавливает единый цвет для всех ссылок*/
+ * a{text-decoration:none; 
+  color: @text-color;} 
+ 
+ /*Убирает выставляемые браузером граници и outline ля элементов ссылок*/
+input,
+button,
+input,
+select,
+textarea
+{ 
+outline: none;
+border: 0px;
+	
+	&:focus { 
+	outline: none;
+	border: 0px;
+		}
+	
+	&[placeholder]{color:@Base-color2; }
+	&::-webkit-input-placeholder {color:@Base-color2;}
+	&::-moz-placeholder       {color:@Base-color2;}
+	&:-moz-placeholder       {color:@Base-color2;}
+	&:-ms-input-placeholder  {color:@Base-color2;}  
+	
+	&:focus::-webkit-input-placeholder {.my_opacity(0);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";}
+	&:focus::-moz-placeholder          { .my_opacity(0);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";}
+	&:focus:-moz-placeholder           {.my_opacity(0);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";}
+	&:focus:-ms-input-placeholder      {.my_opacity(0);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";}
+	
+		
+		
+}
+
+ /*Устанавливает ид курсора "указатель"*/
+html input[type="button"],
+input[type="reset"],
+input[type="submit"]
+
+{-webkit-appearance:button;
+.pointer;}
+
+/* ______________Миксины__________________________________________________________________________ */
+
+/*Переходы---------------------------------------------*/
+.transition(@time){
+-ms-transition:  all @time ease-in-out 0s;
+-webkit-transition:  all @time ease-in-out 0s;
+-moz-transition:  all @time ease-in-out 0s;
+ transition:  all @time ease-in-out 0s;
+}
+/*Боксовая модель---------------------------------------------*/
+.box-sizing(@box-model) { 
+-o-box-sizing: @box-model;
+-webkit-box-sizing: @box-model; // Safari <= 5 
+-moz-box-sizing: @box-model; // Firefox <= 19 
+box-sizing: @box-model; } 
+
+
+/* Перенос строки ---------------------------------------------*/
+ .word-wrap() {
+ -webkit-word-wrap:  break-word;
+ -ms-word-wrap:  break-word;
+word-wrap: break-word;}
+
+ .my_opacity(@opacity)
+ { 
+-ms-opacity:@opacity;
+-moz-opacity:@opacity;
+-webkit-opacity:@opacity;
+ opacity:@opacity;}	
+
+.transform(@transform) {
+    -moz-transform: @transform;
+    -webkit-transform: @transform;
+    -ms-transform: @transform;
+    transform: @transform;
+}
+
+/* Рассчет ширины в процентах , записывать значен в px на выходе проценты   
+@this_width ширина элемента (px),
+@parent_width ширина родительского элемента (px)
+---------------------------------------------*/	
+.my_width(@this_width, @parent_width){
+  width: (@this_width / @parent_width) * 100% ;
+} 
+/* Рассчет размера шрифта в процентах относително
+ родительского, записывать значен в px, на выходе проценты   
+@this_font-size размер шрифта элемента(px),
+@parent_font-size размер шрифта родительского элемента(px)
+---------------------------------------------*/	
+
+ .my_font-size(@this_font-size, @parent_font-size){
+  font-size: (@this_font-size / @parent_font-size) * 100% ;
+}
+ .pointer(){cursor: pointer;}	
+
+ .clearfix() {
+	&:before ,&:after{
+    content: "";
+    display: table;
+    clear: both;}
+}
+
+
+
+/*Градиент полосками*/
+
+.striped(@color: rgba(255,255,255,.15); @angle: 45deg) {
+    background-image: -webkit-linear-gradient(@angle, @color 25%, transparent 25%, transparent 50%, @color 50%, @color 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(@angle, @color 25%, transparent 25%, transparent 50%, @color 50%, @color 75%, transparent 75%, transparent);
+    background-image: linear-gradient(@angle, @color 25%, transparent 25%, transparent 50%, @color 50%, @color 75%, transparent 75%, transparent);
+  }
+
+/*
+Базовые цвета
+---------------------------------------------*/	
+
+@Base-color2: #000;
+@text-color: #fff;
+@header-color: #eb9d16;
+
+
+
+
+	
+a:focus{
+outline:thin dotted;}
+
+a:active,
+a:hover{
+outline:0;}
+
+img{border:0;}
+
+legend{border:0;
+padding:0;}
+
+button,
+input,
+select,
+textarea{
+font-family:inherit;
+font-size:100%;}
+
+button,
+input{
+line-height:normal;}
+
+button,
+select{text-transform:none;}
+
+button[disabled],
+html input[disabled]
+{cursor:default;}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner{
+border:0;
+padding:0;}
+
+textarea{overflow:auto;
+vertical-align:top;}
+
+
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}
+/* ______________Шаблоны__________________________________________________________________________ */
+
+
+/* Устанавливает боксовую модель для всех элементов 
+странички и делает их блочными ---------------------------------------------*/
+.all *{
+.box-sizing(border-box);
+display:block;
+}	
+
+/* Переменные ширины для медиазапросов-------------------*/
+@desctop_max_full_1920_cite_width:1920px;
+@desctop_max_full_cite_width:1580px;
+@desctop_full_cite_width:1260px;
+@desctop_min_cite_width:1024px;
+@mapcase_cite_width:768px;
+@max_mob_cite_width:480px;
+ @mob_cite_width:360px;
+@min_mob_cite_width:320px;
+
+
+	/*	Общие стилии для блоков Профиль- "Персональная информация"  и Профиль-"Друзья"	*/
+			
+	
+	
+	/*Если блоки Профиль- "Персональная информация"  и Профиль-"Друзья" выстроились в две колонки*/
+	.doudle_column(){
+	overflow-y: scroll;
+	height: 200px;}
+		
+	/*Если блоки Профиль- "Персональная информация" , 
+	Профиль-"Друзья" и 
+	Профиль-"Общая статистика"
+	 выстроились в три колонки*/
+	.third_column(){
+	height: 527px;}	
+
+	.third_column--max_full(){
+	height: 500px;}	
+/*Общие стили-------------------------------------------------------*/
+
+/*Размещает блок по центру*/
+	.center-block{
+	 margin-right: auto;
+	 margin-left: auto;}
+	 
+	 
+	 .inline-block
+	 {display:inline-block;
+	 .word-wrap;
+	  }
+
+
+	.profil_page  .header,
+	h3,
+	h1,
+	h2{
+	background-color: @header-color;
+	color: @text-color;
+	}
+	
+	h2,
+	h3,
+	h1{
+	font-weight:bold;	
+	}
+	
+	h2{
+	.my_font-size(24, 14);
+	line-height: 1.2em;
+	 }
+	 
+	 h3,
+	 h1{
+	.box-sizing(padding-box); 
+		 }
+	 
+	 h3{
+	padding: 10px 0px;	 
+	.my_font-size(20, 14);
+	 }
+	
+/*	Кнопки*/
+
+/*	Для всех видов*/
+    *[class*=btn]{
+	.pointer;
+	.word-wrap;	
+	color: @text-color;
+	}
+	
+	 .btn_1,
+	 .btn_3{
+	.my_font-size(16, 14);
+	font-weight:bold; 
+	margin-bottom: 25px; 
+		 }
+	
+/*Кнопки в Хедере главной страницы, блоке демонстрации, в блоке записи данных на персональной*/
+	.btn_1{
+	padding: 10px 10px;	
+	background-color: @header-color;	
+	box-shadow: 2px 5px 1.72px 0.28px rgba(0, 0, 2, 0.68);
+	
+	border-radius: 5px;
+	.transition(0.2s);
+	
+		&:hover, &:focus{
+		background-color: darken(@header-color, 8%);
+		box-shadow: 2px 5px 1.72px 0.28px rgba(0, 0, 2, 0.68) ;
+		text-shadow: @Base-color2 1px 1px 1px;
+		}
+		
+			&:active{
+			background-color: darken(@header-color, 14%);
+			box-shadow: 0px 3px 1.72px 2px rgba(0, 0, 2, 0.68) ;
+			text-shadow: @Base-color2 1px 1px 1px;
+				}	
+		}
+		
+	/*	Стили для кнопки в заголовке страницы профиля*/
+		.btn_2{
+		border: @Base-color2 solid 2px;	
+		background:none; 
+		
+			&:hover, &:focus{
+			background-color: darken(@header-color, 8%);
+			background-color: rgba(0, 0, 0, 0.3) ;
+			box-shadow: 0px 0px 0px 2px @Base-color2 ;	
+			}
+			
+				&:active{
+				text-shadow: @Base-color2 1px 1px 1px;		
+				background-color: darken(@header-color, 14%);
+				background-color: rgba(0, 0, 0, 0.5) ;
+				
+				}		
+			
+			}
+		
+/*		Стили для инпутов - на главной в блоках - демонстрация,
+		вход,
+		регистрация. На персональной, в блоке ввида данных.*/
+		.input_1{
+		border: 1px solid lighten(@Base-color2, 50%);
+		padding: 5px;
+		border-radius: 3px;	
+		
+		    &:hover{
+			border: 1px solid @Base-color2;
+			box-shadow: 1px 1px 1px 2px lighten(@Base-color2, 50%) ;
+		    }
+			
+				&:focus{
+				border: 1px solid @Base-color2;
+				box-shadow: 1px 1px 1px 2px @Base-color2;
+				}
+	}
+	
+	/*Кнопки для форм регистрация и вход на главной*/
+			.btn_3{background: @Base-color2;
+					border-radius: 10px; 
+					box-shadow:3px 3px 2.72px 0.28px darken(@header-color, 30%) ,
+					3px 3px 2.72px 0.28px lighten(@Base-color2, 70%) inset;
+					
+					
+						&:hover, &:focus{
+						background: lighten(@Base-color2, 30%);
+						box-shadow:3px 3px 2.72px 1px darken(@header-color, 50%) ,
+						5px 5px 2.72px 0.28px lighten(@Base-color2, 70%) inset;}
+						
+							&:active{
+							background: lighten(@Base-color2, 45%);
+							box-shadow:3px 3px 4px 3px darken(@header-color, 35%) ,
+							5px 5px 2.72px 0.28px lighten(@Base-color2, 85%) inset;}
+			}
+			
+			
+	
+/*	Стили для Форм-----------------------------*/
+		 form{
+		color:@Base-color2;}
+		
+		label{
+		padding-top: 7.5px;
+		padding-bottom:	7.5px;
+		text-align:left; 
+		
+		/*Имя полей ввода*/
+				.input-name{
+				padding-left: 5px;	
+				width: 30%;}
+				
+				/*Проверочный элемент*/
+				.valid_invalid{
+				position:relative;	
+				float:right;
+				width: 10%;
+				height: 100%;
+				margin-right: 10px;
+				 }
+				
+					input:valid + .valid_invalid::after {
+					  content: '✓';
+					  color: green;
+					}
+					
+					input:invalid + .valid_invalid::after {
+					  content: '✗';
+					  color: red;
+					}
+		
+					input + .valid_invalid:after {
+					  content: '';
+					  position: absolute;
+					  left: 0px;
+					  top: 50%;
+					}
+						
+				.input-name--append{padding-left: 10px;}			  
+		}
