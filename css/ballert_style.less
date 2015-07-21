@@ -899,175 +899,183 @@ background-color: @text-color;}
 					 .ui-tabs-anchor, .ui-tabs-anchor:hover, .ui-tabs-anchor:link  .ui-tabs-anchor:active{
 						 border:none;}
 		}
+		
+		
+
+
+	/*Медиаапросы для странички профиля----------------------------------------------------------------------*/
+	
+	
+	/*Если экран больше 360---------------------------------------------------------------------------------*/
+	@media screen and (min-width:@max_mob_cite_width) {
+		
+		
+		  /* Заголовки*/
+		  
+	/*	  Сдвигает кнопку "Выйти" в заголовке страницы профиля влево*/
+			.right-button-responsive{
+			position: relative;
+			padding-right:130px;	  
+			
+				.header_button--exit{
+				position:absolute;
+				top: 12.5px;
+				right:10px;
+				width: 120px;
+				/*		top: -5px;*/	
+				}
+			}
+		  
+	
+	
+		
+	}
+	
+	
+	/*Медиаапрос для таба, если экран меньше платшетного*/
+	@media screen and (max-width:@mapcase_cite_width) {
+		
+			/*	Стиль для вертикального таба*/
+			.tabs--vertical {
+			.clearfix;	
+			width:100%;
+		
+	/*Список вкладок передвигается влево и становится горизонтальным*/
+				ul{
+				width:50%;
+				float:left;		
+				padding-bottom: 0.2em;
+				padding-right: 0px;	
+					
+					li{
+						a{
+						float:none;
+						width: 100%;
+						}
+					}
+				}
+				
+					.ui-tabs-nav .ui-tabs-active{
+					border-right: 0px; 
+					padding-bottom:0px;
+					padding-right:1px;
+					left: 3px;
+					}
+					
+					.ui-tabs-nav li{
+					border-radius:  4px 0px 0px 4px ;
+					margin: 2px 0px; 
+					white-space:normal;
+					width: 100%; }
+				
+				div{
+				width:50%;
+				margin-left: 50%;	
+				}	
+			
+			}	
+	
+					/*Что бы в вертикальном расположении таба кнопка при нажатии не опускалась вниз*/
+					.ui-tabs .ui-tabs-nav li.ui-tabs-active { margin-bottom: 2px; }
+	
+	}
+	
+	/*Есл экран больше планшетного*/
+	@media screen and (min-width: @mapcase_cite_width) {
+	
+	/*Блок с персональной информацией смещается влево*/
+		 .profil-info{
+		float:left;	
+		 width:  @width-double_divide ;
+		 .doudle_column;
+		/* Устанавливает  поле слева равное отступу*/
+		 margin-left:@profil_edge-padding;
+		}
+		
+		/*Блок "Друзья" смещается вправо*/
+		 .friends-subscriber{
+		width: @width-double_divide ;
+		margin-left: @width-double_divide;
+		margin-right:@profil_edge-padding;
+		}
+		
+		.all-statistic{clear:both;}		
+		
+	}
+	
+	/*Если экран больше стандартного*/
+	@media screen and (min-width: @desctop_full_cite_width) {
+	
+	/*Блоки с персональной информацией, друзьями  и статистикой, выстраиваются в две колонки*/
+		
+			.profil-info,	
+			.friends-subscriber	,
+			.all-statistic	{
+			 width: @width-third_divide;
+			 float:left;	
+			}
+		
+			
+			/*Блок "Друзья" смещается вправо*/
+			 .friends-subscriber{
+			margin-left: auto;
+			margin-right:auto;
+			}
+			
+		/*	Происходит выравнивание  блоков "персональная информация", "друзья" и "общая статистика"*/	
+			.profil-info,
+			.friends-subscriber
+			{.third_column;}
+			
+			
+			/*Блок "Общая статистика " смещается вправо*/
+			.all-statistic
+			{clear:none;
+			padding-left: 20px;
+			padding-right:20px;		
+			margin-right:@profil_edge-padding;
+			}
+				
+			.profil_page_news{clear:both;
+			
+			form{width: 98%;}
+			}
+			
+			
+		
+		
+	}
+	
+	
+	
+	@media screen and (min-width: 1400px) {
+	/*	Происходит выравнивание  блоков "персональная информация", "друзья" и "общая статистика"*/	
+	
+	/*При этом расширении блок "общая статистика" незначительно уменьшается, поэтому применено дополнительное выравнитвание*/
+		
+		.profil-info,
+		.friends-subscriber{.third_column--max_full;}
+	
+	
+	}
+	
+	
+	/*Если экран больше 1580px*/
+	@media screen and (min-width: @desctop_max_full_cite_width) {
+		
+	/*Увеличивает ширину контейнера с чекбоксанм на странице профиля	*/
+	
+	.profil_page_news
+	form{width: 98%;}
+	
+	}	
+	
+		
+		
+		
 }
 
 
 /*Конец стилей для странички профиля----------------------------------------------------------------------*/
 
 
-/*Медиаапросы для странички профиля----------------------------------------------------------------------*/
-
-
-/*Если экран больше 360---------------------------------------------------------------------------------*/
-@media screen and (min-width:@max_mob_cite_width) {
-	
-	
-	  /* Заголовки*/
-	  
-/*	  Сдвигает кнопку "Выйти" в заголовке страницы профиля влево*/
-		.right-button-responsive{
-		position: relative;
-		padding-right:130px;	  
-		
-			.header_button--exit{
-			position:absolute;
-			top: 12.5px;
-			right:10px;
-			width: 120px;
-			/*		top: -5px;*/	
-			}
-		}
-	  
-
-
-	
-}
-
-
-/*Медиаапрос для таба, если экран меньше платшетного*/
-@media screen and (max-width:@mapcase_cite_width) {
-	
-		/*	Стиль для вертикального таба*/
-		.tabs--vertical {
-		.clearfix;	
-		width:100%;
-	
-/*Список вкладок передвигается влево и становится горизонтальным*/
-			ul{
-			width:50%;
-			float:left;		
-			padding-bottom: 0.2em;
-			padding-right: 0px;	
-				
-				li{
-					a{
-					float:none;
-					width: 100%;
-					}
-				}
-			}
-			
-				.ui-tabs-nav .ui-tabs-active{
-				border-right: 0px; 
-				padding-bottom:0px;
-				padding-right:1px;
-				left: 3px;
-				}
-				
-				.ui-tabs-nav li{
-				border-radius:  4px 0px 0px 4px ;
-				margin: 2px 0px; 
-				white-space:normal;
-				width: 100%; }
-			
-			div{
-			width:50%;
-			margin-left: 50%;	
-			}	
-		
-		}	
-
-				/*Что бы в вертикальном расположении таба кнопка при нажатии не опускалась вниз*/
-				.ui-tabs .ui-tabs-nav li.ui-tabs-active { margin-bottom: 2px; }
-
-}
-
-/*Есл экран больше планшетного*/
-@media screen and (min-width: @mapcase_cite_width) {
-
-/*Блок с персональной информацией смещается влево*/
-	.profil_page .profil-info{
-	float:left;	
-     width:  @width-double_divide ;
-	 .doudle_column;
-	/* Устанавливает  поле слева равное отступу*/
-	 margin-left:@profil_edge-padding;
-	}
-	
-	/*Блок "Друзья" смещается вправо*/
-	.profil_page .friends-subscriber{
-	width: @width-double_divide ;
-	margin-left: @width-double_divide;
-	margin-right:@profil_edge-padding;
-	}
-	
-	.all-statistic{clear:both;}		
-	
-}
-
-/*Если экран больше стандартного*/
-@media screen and (min-width: @desctop_full_cite_width) {
-
-/*Блоки с персональной информацией, друзьями  и статистикой, выстраиваются в две колонки*/
-	.profil_page{
-		.profil-info,	
-		.friends-subscriber	,
-		.all-statistic	{
-	     width: @width-third_divide;
-		 float:left;	
-		}
-	
-		
-		/*Блок "Друзья" смещается вправо*/
-		 .friends-subscriber{
-		margin-left: auto;
-		margin-right:auto;
-		}
-		
-	/*	Происходит выравнивание  блоков "персональная информация", "друзья" и "общая статистика"*/	
-		.profil-info,
-		.friends-subscriber
-		{.third_column;}
-		
-		
-		/*Блок "Общая статистика " смещается вправо*/
-		.all-statistic
-		{clear:none;
-		padding-left: 20px;
-		padding-right:20px;		
-		margin-right:@profil_edge-padding;
-		}
-			
-		.profil_page_news{clear:both;
-		
-		form{width: 98%;}
-		}
-		
-		
-	}
-	
-}
-
-
-
-@media screen and (min-width: 1400px) {
-/*	Происходит выравнивание  блоков "персональная информация", "друзья" и "общая статистика"*/	
-
-/*При этом расширении блок "общая статистика" незначительно уменьшается, поэтому применено дополнительное выравнитвание*/
-	.profil_page{
-	.profil-info,
-	.friends-subscriber{.third_column--max_full;}
-	}
-
-}
-
-
-/*Если экран больше 1580px*/
-@media screen and (min-width: @desctop_max_full_cite_width) {
-	
-/*Увеличивает ширину контейнера с чекбоксанм на странице профиля	*/
-.profil_page
-.profil_page_news
-form{width: 98%;}
-
-}
