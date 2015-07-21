@@ -70,7 +70,7 @@ $(".statistic_details").before('<!--Кнопка подробней--><div class
 
 
 /*Вставляем кнопку Показать скрыть доп инфу в Профиль - Персональная информация*/
-$(".profil-info").append('<!--Кнопка подробней--><p class="switchText profil-info_other-inf btn_1 inline-block icon_append" ><span class="inline-block switchText_text">Дополнительно...</span><span class="inline-block switchText_text">Основное</span><i></i></p>');
+$(".profil-info").append('<!--Кнопка подробней--><p class="switchText profil-info_other-inf btn_1 inline-block icon_append" ><span class="inline-block switchText_text">Дополнительно</span><span class="inline-block switchText_text">Основное</span><i></i></p><!--Кнопка редактировать инфу--><p class="profil-info_edit btn_1 inline-block icon_append" ><span >Редактировать</span></p>');
 
 /*Скрываем блоки с деталями Профиль - Персональная информация после конпки переключателя*/
 /*Скрываем блок с деталямми Профиль-Общая статистика*/
