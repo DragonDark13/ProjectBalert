@@ -66,11 +66,11 @@ $('.bt-overlay').click(function() {
 
 
 /*Вставлякм кнопку Подробнее/Скрыть в Профиль-Общая статистика*/
-$(".statistic_details").before('<!--Кнопка подробней--><div class="statistic_detailsButton btn_1 inline-block icon_append switchText"><span class="inline-block switchText_text">Подробней</span><span class="inline-block switchText_text" >Скрыть</span><i></i></div><!--Количество дней-->');
+$(".statistic_details").before('<!--Кнопка подробней--><div class="statistic_detailsButton btn_1 inline-block icon_append switchText"><span class="inline-block switchText_text">Подробней</span><span class="inline-block switchText_text" >Скрыть</span><i class="icon-min"></i></div><!--Количество дней-->');
 
 
-/*Вставляем кнопку Показать скрыть доп инфу в Профиль - Персональная информация*/
-$(".profil-info").append('<!--Кнопка подробней--><p class="switchText profil-info_other-inf btn_1 inline-block icon_append" ><span class="inline-block switchText_text">Дополнительно</span><span class="inline-block switchText_text">Основное</span><i></i></p><!--Кнопка редактировать инфу--><p class="profil-info_edit btn_1 inline-block icon_append" ><span >Редактировать</span></p>');
+/*Вставляем кнопки "Показать скрыть доп инфу" и "Редактировать" в Профиль - Персональная информация*/
+$(".profil-info").append('<!--Кнопка подробней--><p class="switchText profil-info_other-inf btn_1 inline-block icon_append" ><span class="inline-block switchText_text">Дополнительно</span><span class="inline-block switchText_text">Основное</span><i class="icon-min" ></i></p><!--Кнопка редактировать инфу--><p class="profil-info_edit btn_1 inline-block icon_append" ><span >Редактировать</span></p>');
 
 /*Скрываем блоки с деталями Профиль - Персональная информация после конпки переключателя*/
 /*Скрываем блок с деталямми Профиль-Общая статистика*/
@@ -119,5 +119,7 @@ $(this).children(".switchText_text").toggle();
 /*Вызываем набор кнопок*/
 	$( "#form_Checkboxes" ).buttonset(); 
 
+/*Вставляет в чекбоксы блоки для изображений*/
+    $( "#form_Checkboxes label" ).prepend('<i class="icon-min" ></i>');
 
 }); //Конец ready

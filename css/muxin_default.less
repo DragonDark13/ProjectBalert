@@ -64,11 +64,11 @@ input[type="submit"]
 /* ______________Миксины__________________________________________________________________________ */
 
 /*Переходы---------------------------------------------*/
-.transition(@time){
--ms-transition:  all @time ease-in-out 0s;
--webkit-transition:  all @time ease-in-out 0s;
--moz-transition:  all @time ease-in-out 0s;
- transition:  all @time ease-in-out 0s;
+.transition(@transition){
+-ms-transition:  @transition;
+-webkit-transition: @transition;
+-moz-transition:  @transition;
+ transition:  @transition;
 }
 /*Боксовая модель---------------------------------------------*/
 .box-sizing(@box-model) { 
@@ -132,6 +132,8 @@ word-wrap: break-word;}
     background-image: -o-linear-gradient(@angle, @color 25%, transparent 25%, transparent 50%, @color 50%, @color 75%, transparent 75%, transparent);
     background-image: linear-gradient(@angle, @color 25%, transparent 25%, transparent 50%, @color 50%, @color 75%, transparent 75%, transparent);
   }
+  
+/*  Вертикально (по центру), горизонтально (устанавливаем)*/.mixin_absolute_block-CenterCenter(@width:32, @height:32, ){ position:absolute;  top: 50%; width:@width; height:@height; margin-top: -@height / 2; }
 
 /*
 Базовые цвета
@@ -374,20 +376,14 @@ border-radius: 5px;
 	
 	/*Кнопка с местом для иконки в конце*/
 			.icon_append{
-			padding-right:45px;
+			padding-right:40px;
 			position:relative;
 			
 			/*Иконка стрелки внутри кнопки*/
 				i{
-				position:absolute;
 				right: 3px;
-				top:50%;
-				width: 40px;
-				height: 40px;
-				margin-top: -40px / 2;
-				background-image:url(../images/Arrow_down_48.png);
-				background-position:  center;
-				background-repeat:no-repeat;
+				
+				.sprite-Arrow_down_32;
 				border-radius: 50%;
 				border: 1px solid rgba(0, 0, 0, 0.5);
 				box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3) inset,
@@ -407,7 +403,13 @@ border-radius: 5px;
 			}
 			
 			.btn_active  i{
-				background-image:url(../images/Arrow_up_48.png);	
+				.sprite-Arrow_up_32;	
+			}
+				
+				
+				/*Размер для иконок внутри кнопок ("Прикрепить","Чекбоксы", "Подробнее")*/
+				.icon-min{
+					.mixin_absolute_block-CenterCenter(@width:32px, @height:32px );
 				}
 	
 /*	Стили для Форм-----------------------------*/
@@ -452,3 +454,18 @@ border-radius: 5px;
 						
 				.input-name--append{padding-left: 10px;}			  
 		}
+		
+		
+		
+		
+/*		СПРАЙТЫ________________________________________________________________________*/
+
+	.sprite-Arrow_down_32() {  background:url(../images/sprites.png) no-repeat 0px 0px; }
+	.sprite-Arrow_up_32() {  background:url(../images/sprites.png) no-repeat 0px -32px;  }
+	.sprite-Attachment_32() { 
+	 background-image:url(../images/sprites.png)  ; 
+	background-position: -0px -64px;
+	background-repeat:no-repeat ; 
+	}
+	.sprite-Checkbox_32 (){  background:url(../images/sprites.png) no-repeat -0px -96px; }
+	.sprite-Checkbox_empty_32 (){  background:url(../images/sprites.png) no-repeat -0px -128px; }
