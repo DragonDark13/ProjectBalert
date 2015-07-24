@@ -368,6 +368,7 @@
     </article>
 
 </section>
+<footer>©2015 ITmandarin</footer>
 
 </body>
 </html>
