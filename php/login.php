@@ -7,6 +7,7 @@ $query = "SELECT * FROM users WHERE login='$login'";
 $result = $db->runQuery($query);
 $myrow = mysqli_fetch_array($result);
 if ($login==$myrow['login'] && $password == $myrow['password']  ) {
+	$_SESSION['user_id'] = $myrow['id'];
 	$_SESSION['name'] = $myrow['name'];
 	$_SESSION['lastname'] = $myrow['last_name'];
 	$_SESSION['age'] = $myrow['age'];

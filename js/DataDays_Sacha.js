@@ -6,8 +6,7 @@ $(document).ready(function() {
 
 /*Количество дней*/
 
-var details_allCountDays = 93;
-
+var details_allCountDays = 100 ;
 
 /*Выводим на страничку*/
 
@@ -102,7 +101,7 @@ details_allCountDays) * 100    }
 $.template('simple', '<legend>${Name}</legend><div class="statistic_progressBar" ><div class="progressBar_progress"></div><span class="progressBar_value">${ Math.round(parametrSum) +"%"}</span></div>');
 
 /*Вставляем шаблон*/
- $.tmpl('simple', allStatistic).prependTo('.all-statistic');
+ //$.tmpl('simple', allStatistic).prependTo('.all-statistic');
  
  $('<h4>Общая статистика пользователя по B-alert.</h4>').prependTo('.all-statistic');
  

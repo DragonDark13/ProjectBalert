@@ -1,9 +1,40 @@
 <?session_start();
-//require('../php/dbconnect.php');
-//$db = new DbConnect;
+if(!$_SESSION['user_id']){
+    header('Location:../index.html');
+}
 
 //$login = $_GET["login"];
 //$password = md5($_POST["password"]);
+require_once('../php/dbconnect.php');
+$db = new DbConnect;
+ini_set('error_reporting', E_ALL);
+error_reporting(~E_ALL & ~E_WARNING & ~E_NOTICE & ~E_DEPRECATED);
+if (isset($_POST['plan'])) {
+    $plan = $_POST['plan'];
+}
+if (isset($_POST['action'])) {
+    $action = $_POST['action'];
+}
+if (isset($_POST['learning'])) {
+    $learning = $_POST['learning'];
+}
+if (isset($_POST['exercises'])) {
+    $exercises = $_POST['exercises'];
+}
+if (isset($_POST['relax'])) {
+    $relax = $_POST['relax'];
+}
+if (isset($_POST['thinking'])) {
+    $thinking = $_POST['thinking'];
+}
+$user_id = $_SESSION['user_id'];
+$date = date('Y-m-d');
+if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){
+    $query = "INSERT INTO statistics (plan,action,learning,exercises,relaxing,thinking,user_id,created_at)
+                VALUES ('$plan','$action','$learning','$exercises','$relax','$thinking','$user_id','$date')";
+    $result = $db->runQuery($query);
+}
+
 
 ?>
 
@@ -81,7 +112,7 @@
        
       
       <form name="exit"
-             action="exit.php" 
+             action="../php/exit.php"
              method="post"> 
              
         <button
@@ -109,8 +140,7 @@
     
         <!--    Фото-->
         <div class="profil-info_foto">
-            <img src="../user_images/
-            <? echo $_SESSION['foto']?>" alt=""/>
+            <img src="../user_images/<? echo $_SESSION['foto']?>" alt=""/>
         </div>
         
         <!--    Информация-->
@@ -189,11 +219,48 @@
     
     
     <!--Общая статистика пользователя по Балерт-->
-    <article 
+    <?php 
+    $statistic = "SELECT * FROM statistics WHERE user_id = '$user_id'  ";
+    $countDays = mysqli_num_rows($db->runQuery($statistic));
+    if(!$countDays){
+        $countDays = 1;
+    }
+    $balert[] = ['plan','action','learning','exercises','relaxing','thinking'];
+    $name[] = ['План','Действие','Обучение','Физическая нагрузка','Отдых','Позитивное мышление'];
+    $statistic = array();
+    foreach ($balert as $value) {
+        for($i=0;$i<=count($value);$i++) {
+            //$key = $value[$i];
+            $query = "SELECT SUM($value[$i]) FROM statistics WHERE user_id = '$user_id'";
+            $result1 = $db->runQuery($query);
+//            if (!$result1) {
+//                printf("Error: %s\n", mysqli_error($db->conn));
+//                exit();
+//            }
+            $SUM[] = mysqli_fetch_array($result1);
+            //print_r($SUM[1][0]);
+            $statistic[] = round(($SUM[$i][0]/$countDays)*100);
+        }
+        //return $SUM;
+    }
+    //print_r($name);
+
+
+    ?>
+    <article
     class="all-statistic profil_block--dotted">
     
     
         <!--Сюда помещается статистика-->
+        <?php for($i=0;$i<count($name[0]);$i++) {?>
+            <div>
+                <legend><? echo $name[0][$i]?></legend>
+                <div class="statistic_progressBar" >
+                    <div class="progressBar_progress"></div>
+                    <span class="progressBar_value"><? echo $statistic[$i].'%'?></span>
+                </div>
+            </div>
+        <?php } ?>
         
  
         <div 
@@ -235,6 +302,14 @@
     </article>
 
 <!--Блок - Новости на сегодня-->
+      <?
+      $date = date("Y-m-d");
+      $query1 = "SELECT * FROM statistics WHERE user_id = '$user_id' AND created_at = '$date' ";
+      $select = $db->runQuery($query1);
+      //var_dump($select);
+      $isDate = mysqli_num_rows($select);
+
+      ?>
     <article 
     class="profil_page_news profil_block--dotted" >
         <h2>Новости на сегодня</h2>
@@ -242,55 +317,63 @@
 
           
           <div id="form_Checkboxes" class="clearfix">
-           
+           <form method="post" name="statistic" action="">
            <input type="checkbox" 
-           name="CheckboxGroup2"
+           name="plan"
+           value="1" 
            id="CheckboxGroup2_0">
            <label for="CheckboxGroup2_0">
              Планировали 
            </label>
            
            <input type="checkbox"
-           name="CheckboxGroup2"
+           name="action"
+           value="1"
            id="CheckboxGroup2_1">
            <label for="CheckboxGroup2_1">
              Действовали 
            </label>
            
            <input type="checkbox" 
-           name="CheckboxGroup2"
+           name="learning"
+           value="1"
            id="CheckboxGroup2_2">
            <label for="CheckboxGroup2_2">
              Обучались 
            </label>
            
            <input type="checkbox"
-           name="CheckboxGroup2"
+           name="exercises"
+           value="1"
            id="CheckboxGroup2_3">
            <label for="CheckboxGroup2_3">
              Делали упражнения
            </label>
            
            <input type="checkbox" 
-           name="CheckboxGroup2"
+           name="relax"
+           value="1"
            id="CheckboxGroup2_4">
            <label for="CheckboxGroup2_4">
              Отдыхали
            </label>
            
            <input type="checkbox"
-           name="CheckboxGroup2"
+           name="thinking"
+           value="1"
            id="CheckboxGroup2_5">
            <label for="CheckboxGroup2_5">
              Думали позитивно
            </label>
          </div>
          
-         <input type="button" 
+         <input type="submit" 
          id="Save2"
          class="btn_1 center-block"
-         value="Сохранить">
-         
+         value="Сохранить"
+         <?echo !($isDate > 0) ? '' :  "disabled"; ?>
+         >
+        
        </form>
      
      
