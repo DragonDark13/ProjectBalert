@@ -1,0 +1,917 @@
+
+
+body {
+width: 100%;
+font:14px /1.7em  Arial , sans-serif; 
+}
+
+ .all{ 
+ position:relative;
+height: auto;
+margin: 0px auto;
+/*width: @min_mob_cite_width; */      
+text-align:center;
+background-color: @text-color;}
+ 
+
+/*Стили для основной страницы---------------------------------------*/
+
+
+	.header{
+	position:relative;
+	background: @empty_checkbox_color;
+	background: @header-color--light;
+	position: relative;
+	margin-bottom: 12px;
+	padding-top: 3px;
+
+		/*&:after{ 
+		.after_block_full( @width:0%, @height:3px );
+		background-color: @header-color;
+		.transition(0.3s);
+		}
+*/
+			&:hover:after{ width: 100%;}
+
+		h1{
+		margin-top: 11px;
+		font-size: 28px;
+		font-family: "Eras Bold ITC";
+		text-transform:uppercase;
+		line-height:1.2em;
+		padding-top: 0px;
+		background: none;
+		}
+	}
+	
+	/*  Контейнер с кнопками в верхнем заголовке*/
+	
+	.header_button-container{
+	padding-top: 15px;
+	padding-right: 15px;
+	padding-bottom: 5px;
+	
+		&>*{
+			float: right;
+			margin-bottom: 10px;
+			margin-right: 15px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			/*.my_font-size(16, 14);*/
+			}
+			
+		/*Кнопка ссылкой внутри*/
+		.buttonHasHyperlink{
+		/*Убираем паддинги*/	
+		padding: 0px;
+		
+		/*Добавляем ссылке падинги равные падингам аналогичной кнопки без ссылки*/
+			// a,
+			// .header_button--exit{ 
+			//  padding: 5px 10px; 
+			//  display: inline-block;
+			// }	
+		
+		}
+			
+	}
+
+		/*Стили для блоков про аспекты БАЛЕРТА*/
+
+		.main article.balert_aspect{
+			position: relative;
+
+			.aspect_text{
+			position: absolute;
+			width: 95%;
+			height: 100%;
+			.my_opacity(0);
+			z-index: 2;
+			padding: 0px 20px;
+			.transition(0.3s );
+			background: fade(@text-color, 90%) ;
+			.transform( scale(1, 0)) ;
+			.transform-origin( 0% 0%);
+			}
+
+			// &:after{
+			// .after_block_full(94.9%, 0%,  42px, auto );
+			// background: @text-color;
+			// .my_opacity(0.9);
+			// z-index: 1;
+			// .transition(0.2s);
+			// }
+
+				p{margin-bottom: 5px;}
+
+			&:hover{
+
+				h3 {
+				background-color: darken(@header-color, 5%);
+				}
+
+				.aspect_text{
+				.my_opacity(1);
+				 .transform( scale(1, 1)) ;
+				}
+
+				// &:after{height: 100%;}
+			}
+		}
+
+		.balert_aspect,
+		.other_possibility{
+        max-height: 337px;
+		overflow: hidden;
+		margin: 12px 0;
+
+			h3{
+			margin: 0px;
+			.transition(0.2s);
+			}
+
+			h5{
+			 font-size: 16px;
+			 margin: 0px;
+			 padding: 10px 5px;
+			}
+		}
+	
+		.main .description p {
+		   	text-align: center;
+		   	text-indent: 0px;
+		   }
+
+		   hgroup{
+		   	margin-top: 12px;
+
+				h2{ 
+				margin: 0px;
+				padding-top: 5px;
+				}
+
+				h3{ margin-top: 0px;}
+		   }
+
+/*	 	Текстовое содержимое блоков*/
+		.main article{
+		.clearfix;
+
+			p,
+			blockquote{	
+			padding: 2.5px 5px;
+			}
+		
+			p{
+			text-indent: 15px;
+			text-align:justify;
+			.word-wrap;
+			}
+			
+			/*	Цитаты*/
+			blockquote{
+			font-style:italic;		
+			}	
+		}
+			  	 
+/*Картинкм*/
+/*Ширина картинок для*/
+
+/*малых экранов*/
+@mob-device_img_max_width:100%;
+
+/*Стандартных*/
+@desctop_img_max_width:70%;
+
+/*больших*/
+@min-full-screen_img_max_width:60%;
+
+/*очень больших*/
+@max-full-screen_img_max_width:30%;
+
+	/* img {max-width: @mob-device_img_max_width;}*/
+	 
+/*	 класс для картинки которая не должна сдвигатся*/
+	 .article_img-center--no-float{ width: 40%;}
+	
+/*	Форма для демонстрации*/
+
+	.demonctration,
+	.todays_news{
+	
+		li{margin-top: 10px;}
+
+			input[type="checkbox"]{display: none;}
+
+			 input[type="checkbox"] + label{
+			 position: relative;
+			 margin-bottom: 15px;
+			 padding-top: 35px;
+			font-size: 14px;
+			text-align: center;
+			
+
+				 &:after{
+				 .after_block;
+				 .mixin_absolute_block-align_horizontal;
+				 .sprite-Checkbox_empty_32;
+				 top: 5px;
+				}
+
+			 }
+
+
+			 input[type="checkbox"]:checked + label{
+
+			 	 &:after{ .sprite-Checkbox_32;}
+			 }
+
+			 label{display: block;}
+
+			 label:active{top: 2px;}
+
+		 &>*:last-child{
+		 margin-bottom: 5px;}
+
+	}
+
+	.demonctration{
+
+		 input[type="button"]{width: 32%; }
+
+	}
+
+
+	/*	Форма для входа в профиль*/
+	.entrance{
+	clear:both;
+	 .clearfix;
+	 margin-top: 15px;
+
+	
+	/*label{max-width: @mob_cite_width;}*/
+	
+	}
+	
+	/*Поля в форме регистрации и форме ввода*/
+	/*.reg , */
+	.entrance{
+		 
+		 fieldset{
+			  /*background: @header-color;*/
+			  border: 0;
+			  padding-top: 7px;}
+			
+			
+					button
+					,label[class*=btn]{
+					padding:  5px 15px;
+					margin-left: 10px;
+					margin-right:10px;
+					line-height: 20px;
+					}
+					
+					label input{width: 50%;}
+	}
+	
+	
+	
+	/*Форма регистрации-------------------------------------------------------------------*/
+	
+
+	 /*Ширина формы регистрации*/
+	
+/*Для больших экранов	 */
+@reg_double_width:@reg_width *2.4 ;	
+
+/*Для средних*/
+@reg_width: 320px;
+
+/*Для малых*/
+@min_mob_reg_width: 305px;
+	
+	/*Класс для сокрыия закрытия меню*/
+	/*.js-reg{
+	z-index: 11;
+    position:absolute;	
+	left: 50%;
+	.transition(0.0001);
+	margin-left: -@min_mob_reg_width / 2;
+	}*/
+	
+	
+/*	Если верхняя кнопка вызывает*/
+	/*.reg_top-place{
+	top: 0px;	
+		} 
+		*/
+	/*Если нижняя кнопка вызывает*/
+	/*.reg_bottom-place{
+	bottom: 0px;	
+		}	*/
+	
+/*	Стили для формы регистрации*/
+	/*.reg{	
+	.my_width(@min_mob_reg_width, @min_mob_cite_width);
+	padding-top: 10px;
+	background: @text-color;
+	border-radius: 15px;
+	
+		label{ padding-left: 5px;
+		
+			
+		}
+	
+	}*/
+	
+/*	Класс при котором форма скрыта*/
+	  /*.hidden_Block{  
+	  .transition(0.0001);
+	  left:-99999px;
+	  }*/
+	  
+/*	  Стили для рядов в форме регистрации*/
+		/*.reg_row{
+			 .clearfix;
+			}*/
+		
+/*	Стиль для проверочной картинки	*/
+		/*.reg img {
+		width: 70px;
+		}*/
+		
+		/*Для полей и кнопки в форме регистрации*/
+		/*.reg fieldset{ 
+		padding-bottom: 15px;
+		border-radius: 0px 0 15px 15px;}
+		
+			.reg fieldset button{ 
+			margin: 0 auto;}
+			*/
+			
+			/*Заменитель кнопки "прикрепить файл"*/
+		 /* #chose_file{
+		  padding-left: 32px;
+		  }*/
+		  
+		 /* Элемнт с назваием файла*/
+		/*  #chose_file_text{
+		  padding-left: 10px;
+		  overflow:hidden;
+		    .my_font-size(12, 14);
+		  }*/
+		   
+		  /* Скрываем кнопку*/
+		 /* input[type="file"]{
+		  display: none;
+		  }*/
+		  
+		  /*Стили для элемента заменителя*/
+		 /* #chose_file.btn_1 { 
+		  position:relative;
+		  padding-top:5px; 
+		  padding-bottom:5px;
+		  margin-bottom: 0px;
+		   .my_font-size(14, 14);
+		   
+		   
+		   i{
+		   .sprite-Attachment_32;
+		   left: 0px;
+		   }
+		
+		  }*/
+		
+			
+	
+/*	Блок затемнения*/
+	
+	.bt-overlay {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=70)";
+	background:@Base-color2;
+	background:rgba(0,0,0,0.50) ;
+	}
+
+	.modal-wrap::before {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.6);
+    bottom: 0;
+    content: "";
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 101;
+}
+.modal-overlay {
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 102;
+}
+.modal-open:checked ~ .modal-wrap::before, .modal-open:checked ~ .modal-wrap .modal-overlay {
+    display: block;
+}
+.modal-open:checked ~ .modal-wrap .modal-dialog {
+    top: 20%;
+    .transform(translate(-50%, 0px));
+}
+.modal-dialog {
+    background: none repeat scroll 0 0 #fefefe;
+    left: 50%;
+    max-width: 400px;
+    position: fixed;
+    top: -100%;
+    .transform(translate(-50%, -400%));
+    .transition;
+    width: 80%;
+    z-index: 103;
+}
+
+.modal-header{
+		text-align: right;
+		padding: 0px;
+		border-width: 0px;
+
+		.btn-close{
+		font-size: 22px;
+		padding: 5px 15px;	
+		margin: 0px;
+		color: @Base-color2;
+		}
+
+	} 
+
+.modal-body{
+padding-top: 0px;
+padding-bottom: 30px;
+
+	&>*{ 
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	}
+
+	label{
+	display: block;
+	padding: 5px 0px 0px 0px;
+	margin: 0px auto 5px auto;
+	}
+
+	fieldset{
+	margin-top: 10px;
+	margin:  10px auto 0px;
+	}
+
+	fieldset>*{margin-right: 10px;}
+
+	legend{
+	font-size: 12px;
+	text-align: center;
+	margin-bottom: 5px;
+	}
+
+		.soc_icon li{ 
+		display: inline-block;
+		width: 13.7%;
+		margin-right: 10px;
+
+			a{ 
+			width: 100%;
+			margin-bottom: 0px;
+			}
+
+			a:hover,
+			a:focus{ 
+			text-decoration: none;
+			color: @text-color;
+		}
+	
+    }
+
+	button {margin-bottom: 0px;}
+}
+		
+	footer{
+	padding-top: 10px;
+	text-align:center;}
+	
+/* Конец стилей для основной страницы___________________________________*/
+
+
+/*Медизапросы____________________________________________________________*/
+
+// desktop________________________________________________________________
+
+	.media_desktop({
+
+		.entrance{
+
+			button,
+			label[class*="btn"]{ 
+			margin-left: 0px;
+			margin-left: 0px;}
+
+		} 
+
+	});
+
+
+// _____tablet________________________________________________________________
+	.media_tablet({
+
+		.balert_aspect {max-height: 400px;}
+
+		.main article.balert_aspect .aspect_text{
+		width: 96%;
+		}
+
+		.demonctration input[type="button"]{
+			width: 31%;
+		}	
+
+		.entrance{
+
+			button{ width: (((100% / 3) *2) / 3)*1;}
+
+			label[class*="btn"]{ width: (((100% / 3) *2) / 3)*2;}
+
+			button,
+			label[class*="btn"]{text-align: center;}
+
+		} 
+
+	});
+
+
+// _____mobile________________________________________________________________
+	.media_mobile({
+
+			.header_button-container > *{
+			display: inline-block; 
+			margin-right: 0px;
+			float: none;
+			}
+
+			.balert_aspect{
+				overflow: auto;
+				max-height: none;
+			}
+
+			.main article.balert_aspect{
+
+
+				.aspect_text{ 
+					position: static;
+					background: none;
+					height: auto;
+					width: 100%;
+					padding: 0px;
+					.my_opacity (1);
+					.transform(scale(1,1));
+
+				}
+
+				p{text-align: center;}
+			}
+
+			.demonctration input[type="button"]{
+				width: auto;
+			}
+
+			label .valid_invalid{ width: 5%;}
+
+			.entrance{
+
+				    .input_1{width: 55%;}			    
+
+					button,
+					label[class*="btn"]
+					{ width: 100%;}
+
+					button{margin-bottom: 15px;}
+			} 
+
+			.modal-container{
+
+					label .input-name{
+					display: block;
+					width: 100%;
+					text-align: center;
+					}
+
+					.soc_icon li{
+
+						@count: 3;
+						@margin: 3%;
+
+						width: (100% - (@margin*@count)) / @count;
+						margin-right: 0px;
+					}
+
+					button{ 
+						width: 96%;
+						margin-right: 0px;
+					}				
+			}
+
+	});
+
+
+/*Медизапросы--------начинвем с малых----------------------------------------*/
+
+
+
+
+
+/*Если экран больше 320---------------------------------------------------------------------------------*/
+@media screen and (min-width:  @mob_cite_width) {
+	
+
+/*  .all{ width: @mob_cite_width;}*/	
+  
+
+  
+  /* Заголовки*/
+ 
+  
+/*  Стили для содержимого блоков*/
+
+  
+/*  Стили для картинок*/
+
+/*Стили для формы*/
+
+
+    .js-reg{
+	margin-left: -@reg_width / 2;
+	}
+	
+	.reg{
+		.my_width(@reg_width, @mob_cite_width);
+	}
+	 
+	
+}
+
+
+
+
+
+
+/*Если экран больше 360---------------------------------------------------------------------------------*/
+@media screen and (min-width:@max_mob_cite_width) {
+	
+  /*.all{ width: @max_mob_cite_width;}*/	
+  
+
+  
+  /* Заголовки*/
+ 
+  
+/*  Стили для содержимого блоков*/
+
+  
+/*  Стили для картинок*/
+
+/*Стили для формы*/
+	.reg{
+		.my_width(@reg_width, @max_mob_cite_width);
+	}
+
+}
+
+
+
+
+/*Если экран больше 768---------------------------------------------------------------------------------*/
+@media screen and (min-width: @mapcase_cite_width) {
+	
+
+/*  .all{ width: @mapcase_cite_width;}*/	
+  
+  
+  /* Заголовки*/
+ 
+  
+/*  Стили для содержимого блоков*/
+
+
+  
+/*  Стили для картинок*/
+
+
+/*Стили для формы*/
+
+/*Выстраивает чекбоксы в 3 строки*/
+/*.demonctration,*/
+ // .profil_page_news {
+	
+	// 	form{
+	// 	width: 70%;	
+	// 	}
+		
+	// 	 label{
+	// 	width: 100% / 2;
+	// 	float:left;
+	// 	}	
+		
+	// }
+	
+
+
+	.reg{
+		.my_width(@reg_width,  @mapcase_cite_width);	
+		
+	}
+}
+
+
+
+
+/*Если экран больше 850---------------------------------------------------------------------------------*/
+@media screen and (min-width: 850px) {
+	
+	/*  Стили для содержимого блоков*/
+	article img~p {
+	margin-left:@desctop_img_max_width + 1%;		 
+	}
+	
+	/*  Стили для картинок*/
+	
+/*	article img {
+	float:left;	 
+	max-width: @desctop_img_max_width;}*/
+	
+	/*Стили для формы*/
+	
+
+}
+
+
+
+/*Если экран больше 1024---------------------------------------------------------------------------------*/
+@media screen and (min-width: @desctop_min_cite_width) {
+	
+/*  .all{ width: @desctop_min_cite_width;}	*/
+  
+  	 
+  /* Заголовки*/
+ 
+  
+/*  Стили для содержимого блоков*/
+
+  
+
+  
+/*  Стили для картинок*/
+
+
+
+
+/*Стили для формы*/
+
+/*Выстраивает чекбоксы в 2 строки*/
+/*.demonctration, */
+// .profil_page_news{
+	
+// 		form{
+// 		width: 70%;	
+// 		}
+		
+// 		 label{
+// 		width: 100% / 3;
+// 		}	
+		
+// 	}
+
+	.reg{
+		.my_width(@reg_width, @desctop_min_cite_width);	
+	}
+}
+
+
+
+
+/*Если экран больше 1260---------------------------------------------------------------------------------*/
+@media screen and (min-width: @desctop_full_cite_width) {
+	
+	body {
+	width: 100%;
+/*	font:16px /1.7em  Arial , sans-serif;  */
+	}
+
+/*  .all{ 
+  width: 90%;
+  }	*/
+  
+  	 
+  /* Заголовки*/
+ 
+  
+	/*  Стили для содержимого блоков*/
+	article img~p {
+	margin-left:@min-full-screen_img_max_width+ 1%;		 
+	}
+	
+	/*  Стили для картинок*/
+	
+	/*article img { 
+	max-width: @min-full-screen_img_max_width;}*/
+
+
+
+/*Стили для формы*/
+
+	
+	/*.entrance>*{
+		width:100% / 3;
+		float:left;	
+			}*/
+
+	/*.js-reg{
+	margin-left: -@reg_double_width / 2;
+	}*/
+	
+/*	Ширина формы регистрации увеличивается в два раза*/
+	.reg{
+		.my_width(@reg_double_width, @desctop_full_cite_width);
+
+		
+		label{
+		float:left;	
+		width:100% / 2;	
+			
+		}
+		
+	/*	Строки формы регострации*/
+		.reg_row{
+		padding-bottom: 5px;
+		padding-left: 5px;
+		padding-right: 5px;
+		border-bottom:solid 1px @Base-color2;
+		}
+			
+		div:last-of-type{ border-bottom: 0px ;}
+	}
+}
+
+
+/*Если экран больше 1260---------------------------------------------------------------------------------*/
+@media screen and (min-width: @desctop_max_full_cite_width) {
+
+/* .all{ 
+  max-width: 80%;
+  }	*/
+  
+  .header img{height: 600px;}
+  
+  .header_button-container{
+	left:50%;
+	margin-left: -10%;  
+	  }
+  	 
+  /* Заголовки*/
+ 
+  
+	/*  Стили для содержимого блоков*/
+	article img~p {
+	margin-left:@max-full-screen_img_max_width + 1%;		 
+	}
+	
+	/*  Стили для картинок*/
+	
+	/*article img {
+	max-width:@max-full-screen_img_max_width;}*/
+
+
+
+/*Стили для формы*/
+
+
+	
+	
+	.entrance{ 
+	width: @desctop_full_cite_width;
+	 }
+	 
+	.js-reg{
+	margin-left: -((100% / 3)* 2)/ 2;
+	}
+
+/*Делает ширину формы регистрации равной 2 третям от ширины страницы*/
+	.reg{
+		width: (100% / 3)* 2;
+	}
+}
+/* Конец основных медиазапросов.................................................*/

@@ -1,0 +1,1060 @@
+/*Стили очистки и миксины*/
+/* LESS Document */
+/* ______________Миксины__________________________________________________________________________ */
+/*Переходы---------------------------------------------*/
+/*Боксовая модель---------------------------------------------*/
+/* Перенос строки ---------------------------------------------*/
+/*  Вертикально (по центру), горизонтально (устанавливаем)*/
+/*  Вертикально (устанавливаем ), горизонтально (по центру)*/
+/* LESS Document */
+/*default style Стили зачистки - убирают или настаивают стандартные стили браузеров*/
+* {
+  /*  Что бы не было полей и отступов по умолчанию	*/
+  margin: 0  ;
+  padding: 0 ;
+  /* Устанавливает плавные переходы для всех элементов страницы	*/
+  -ms-transition: 0.1s;
+  -webkit-transition: 0.1s;
+  -moz-transition: 0.1s;
+  transition: 0.1s;
+}
+/*Убирает значки у элементов списка*/
+ul {
+  list-style: none;
+}
+/*Убирает подчеркивание и устанавливает единый цвет для всех ссылок*/
+* a,
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+* a:hover,
+a:hover,
+* a:focus,
+a:focus {
+  text-decoration: none;
+  outline: none !important;
+}
+/*Убирает выставляемые браузером граници и outline ля элементов ссылок*/
+input,
+button,
+input,
+select,
+textarea {
+  outline: none;
+  border: 0px;
+}
+input:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border: 0px;
+}
+input[placeholder],
+button[placeholder],
+input[placeholder],
+select[placeholder],
+textarea[placeholder] {
+  color: #000000;
+}
+input::-webkit-input-placeholder,
+button::-webkit-input-placeholder,
+input::-webkit-input-placeholder,
+select::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #000000;
+}
+input::-moz-placeholder,
+button::-moz-placeholder,
+input::-moz-placeholder,
+select::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #000000;
+}
+input:-moz-placeholder,
+button:-moz-placeholder,
+input:-moz-placeholder,
+select:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #000000;
+}
+input:-ms-input-placeholder,
+button:-ms-input-placeholder,
+input:-ms-input-placeholder,
+select:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #000000;
+}
+input:focus::-webkit-input-placeholder,
+button:focus::-webkit-input-placeholder,
+input:focus::-webkit-input-placeholder,
+select:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder {
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  -webkit-opacity: 0;
+  -o-opacity: 0;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";
+}
+input:focus::-moz-placeholder,
+button:focus::-moz-placeholder,
+input:focus::-moz-placeholder,
+select:focus::-moz-placeholder,
+textarea:focus::-moz-placeholder {
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  -webkit-opacity: 0;
+  -o-opacity: 0;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";
+}
+input:focus:-moz-placeholder,
+button:focus:-moz-placeholder,
+input:focus:-moz-placeholder,
+select:focus:-moz-placeholder,
+textarea:focus:-moz-placeholder {
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  -webkit-opacity: 0;
+  -o-opacity: 0;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";
+}
+input:focus:-ms-input-placeholder,
+button:focus:-ms-input-placeholder,
+input:focus:-ms-input-placeholder,
+select:focus:-ms-input-placeholder,
+textarea:focus:-ms-input-placeholder {
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  -webkit-opacity: 0;
+  -o-opacity: 0;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";
+}
+/*Устанавливает ид курсора "указатель"*/
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+/*
+Базовые цвета
+---------------------------------------------*/
+/*@header-color: #eb9d16;*/
+a:focus {
+  outline: thin dotted;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+img {
+  border: 0;
+}
+legend {
+  border: 0;
+  padding: 0;
+}
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+button,
+input {
+  line-height: normal;
+}
+button,
+select {
+  text-transform: none;
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+img {
+  max-width: 100%;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+/* ______________Шаблоны__________________________________________________________________________ */
+/* Устанавливает боксовую модель для всех элементов 
+странички  ---------------------------------------------*/
+.all * {
+  -o-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/*	Общие стилии для блоков Профиль- "Персональная информация"  и Профиль-"Друзья"	*/
+/*Общие стили-------------------------------------------------------*/
+/*Размещает блок по центру*/
+.center-block {
+  margin-right: auto;
+  margin-left: auto;
+}
+.inline-block {
+  display: inline-block;
+  -webkit-word-wrap: break-word;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
+h3,
+h1,
+h2,
+h5 {
+  background-color: #1b5572;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+h2,
+h3,
+h1 {
+  font-weight: bold;
+}
+h2 {
+  font-size: 24px ;
+  line-height: 1.2em;
+}
+h3,
+h1 {
+  -o-box-sizing: padding-box;
+  -webkit-box-sizing: padding-box;
+  -moz-box-sizing: padding-box;
+  box-sizing: padding-box;
+}
+h3 {
+  padding: 10px 0px;
+  font-size: 20px;
+}
+/*	Кнопки*/
+/*	Для всех видов*/
+*[class*=btn] {
+  cursor: pointer;
+  -webkit-word-wrap: break-word;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+  color: #ffffff;
+}
+.btn_1,
+.btn_3 {
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+/*Кнопки в Хедере главной страницы, блоке демонстрации, в блоке записи данных на персональной*/
+.btn_1 {
+  padding: 10px;
+  background-color: #64bbbe;
+  text-shadow: #000000 1px 1px 1px;
+}
+.btn_1:hover,
+.btn_1:focus {
+  background-color: #47a5a8;
+}
+.btn_1:hover a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.btn_1[disabled] {
+  background-color: rgba(100, 187, 190, 0.3);
+}
+.btn_1 > a {
+  line-height: 16.6667px;
+  display: inline-block;
+  padding: 10px;
+}
+.btn_1 i {
+  padding-left: 5px;
+  font-size: 16px;
+}
+/*		Стили для инпутов - на главной в блоках - демонстрация,
+		вход,
+		регистрация. На персональной, в блоке ввида данных.*/
+.input_1 {
+  border: 1px solid #808080;
+  padding: 5px;
+}
+.input_1:hover {
+  border: 1px solid #000000;
+  box-shadow: 1px 1px 1px 2px #808080;
+}
+.input_1:focus {
+  border: 1px solid #000000;
+  box-shadow: 1px 1px 1px 2px #000000;
+}
+/*	Стили для Форм-----------------------------*/
+form {
+  color: #000000;
+}
+label {
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+  text-align: left;
+  /*Имя полей ввода*/
+  /*Проверочный элемент*/
+}
+label .input-name {
+  padding-left: 5px;
+  width: 30%;
+}
+label .valid_invalid {
+  position: relative;
+  float: right;
+  width: 10%;
+  height: 100%;
+  margin-right: 10px;
+}
+label input:valid + .valid_invalid::after {
+  content: '✓';
+  color: green;
+}
+label input:invalid + .valid_invalid::after {
+  content: '✗';
+  color: red;
+}
+label input + .valid_invalid:after {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 50%;
+}
+label .input-name--append {
+  padding-left: 10px;
+}
+/*		СПРАЙТЫ________________________________________________________________________*/
+body {
+  width: 100%;
+  font: 14px / 1.7em Arial, sans-serif;
+}
+.all {
+  position: relative;
+  height: auto;
+  margin: 0px auto;
+  text-align: center;
+  background-color: #ffffff;
+}
+/*Стили для основной страницы---------------------------------------*/
+.header {
+  background: #99dd00;
+  background: #1b5572;
+  position: relative;
+  margin-bottom: 12px;
+  padding-top: 3px;
+}
+.header:hover:after {
+  width: 100%;
+}
+.header h1 {
+  margin-top: 11px;
+  font-size: 28px;
+  font-family: "Eras Bold ITC";
+  text-transform: uppercase;
+  line-height: 1.2em;
+  padding-top: 0px;
+  background: none;
+}
+/*  Контейнер с кнопками в верхнем заголовке*/
+.header_button-container {
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 5px;
+  /*Кнопка ссылкой внутри*/
+}
+.header_button-container > * {
+  float: right;
+  margin-bottom: 10px;
+  margin-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.header_button-container .buttonHasHyperlink {
+  /*Убираем паддинги*/
+  padding: 0px;
+}
+/*Стили для блоков про аспекты БАЛЕРТА*/
+.main article.balert_aspect {
+  position: relative;
+}
+.main article.balert_aspect .aspect_text {
+  position: absolute;
+  width: 95%;
+  height: 100%;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  -webkit-opacity: 0;
+  -o-opacity: 0;
+  opacity: 0;
+  z-index: 2;
+  padding: 0px 20px;
+  -ms-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+  -moz-transform: scale(1, 0);
+  -webkit-transform: scale(1, 0);
+  -ms-transform: scale(1, 0);
+  transform: scale(1, 0);
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+}
+.main article.balert_aspect p {
+  margin-bottom: 5px;
+}
+.main article.balert_aspect:hover h3 {
+  background-color: #16465d;
+}
+.main article.balert_aspect:hover .aspect_text {
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  -webkit-opacity: 1;
+  -o-opacity: 1;
+  opacity: 1;
+  -moz-transform: scale(1, 1);
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1);
+}
+.balert_aspect,
+.other_possibility {
+  max-height: 337px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+.balert_aspect h3,
+.other_possibility h3 {
+  margin: 0px;
+  -ms-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  transition: 0.2s;
+}
+.balert_aspect h5,
+.other_possibility h5 {
+  font-size: 16px;
+  margin: 0px;
+  padding: 10px 5px;
+}
+.main .description p {
+  text-align: center;
+  text-indent: 0px;
+}
+hgroup {
+  margin-top: 12px;
+}
+hgroup h2 {
+  margin: 0px;
+  padding-top: 5px;
+}
+hgroup h3 {
+  margin-top: 0px;
+}
+/*	 	Текстовое содержимое блоков*/
+.main article {
+  /*	Цитаты*/
+}
+.main article:before,
+.main article:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.main article p,
+.main article blockquote {
+  padding: 2.5px 5px;
+}
+.main article p {
+  text-indent: 15px;
+  text-align: justify;
+  -webkit-word-wrap: break-word;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
+.main article blockquote {
+  font-style: italic;
+}
+/*	класс для картинки которая не должна сдвигатся*/
+.article_img-center--no-float {
+  width: 40%;
+}
+/*	Форма для демонстрации*/
+.demonctration li,
+.todays_news li {
+  margin-top: 10px;
+}
+.demonctration input[type="checkbox"],
+.todays_news input[type="checkbox"] {
+  display: none;
+}
+.demonctration input[type="checkbox"] + label,
+.todays_news input[type="checkbox"] + label {
+  position: relative;
+  margin-bottom: 15px;
+  padding-top: 35px;
+  font-size: 14px;
+  text-align: center;
+}
+.demonctration input[type="checkbox"] + label:after,
+.todays_news input[type="checkbox"] + label:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  margin-left: -16px;
+  background: url(../images/sprites.png) no-repeat 0px -128px;
+  top: 5px;
+}
+.demonctration input[type="checkbox"]:checked + label:after,
+.todays_news input[type="checkbox"]:checked + label:after {
+  background: url(../images/sprites.png) no-repeat 0px -96px;
+}
+.demonctration label,
+.todays_news label {
+  display: block;
+}
+.demonctration label:active,
+.todays_news label:active {
+  top: 2px;
+}
+.demonctration > *:last-child,
+.todays_news > *:last-child {
+  margin-bottom: 5px;
+}
+.demonctration input[type="button"] {
+  width: 32%;
+}
+/*	Форма для входа в профиль*/
+.entrance {
+  clear: both;
+  margin-top: 15px;
+}
+.entrance:before,
+.entrance:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/*Поля в форме регистрации и форме ввода*/
+/*.reg , */
+.entrance fieldset {
+  border: 0;
+  padding-top: 7px;
+}
+.entrance button,
+.entrance label[class*=btn] {
+  padding: 5px 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  line-height: 20px;
+}
+.entrance label input {
+  width: 50%;
+}
+/*Форма регистрации-------------------------------------------------------------------*/
+/*Ширина формы регистрации*/
+/*Для больших экранов	 */
+/*Для средних*/
+/*Для малых*/
+/*	Блок затемнения*/
+.bt-overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=70)";
+  background: #000000;
+  background: rgba(0, 0, 0, 0.5);
+}
+.modal-wrap::before {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  content: "";
+  display: none;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 101;
+}
+.modal-overlay {
+  bottom: 0;
+  display: none;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 102;
+}
+.modal-open:checked ~ .modal-wrap::before,
+.modal-open:checked ~ .modal-wrap .modal-overlay {
+  display: block;
+}
+.modal-open:checked ~ .modal-wrap .modal-dialog {
+  top: 20%;
+  -moz-transform: translate(-50%, 0px);
+  -webkit-transform: translate(-50%, 0px);
+  -ms-transform: translate(-50%, 0px);
+  transform: translate(-50%, 0px);
+}
+.modal-dialog {
+  background: none repeat scroll 0 0 #fefefe;
+  left: 50%;
+  max-width: 400px;
+  position: fixed;
+  top: -100%;
+  -moz-transform: translate(-50%, -400%);
+  -webkit-transform: translate(-50%, -400%);
+  -ms-transform: translate(-50%, -400%);
+  transform: translate(-50%, -400%);
+  -ms-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+  width: 80%;
+  z-index: 103;
+}
+.modal-header {
+  text-align: right;
+  padding: 0px;
+  border-width: 0px;
+}
+.modal-header .btn-close {
+  font-size: 22px;
+  padding: 5px 15px;
+  margin: 0px;
+  color: #000000;
+}
+.modal-body {
+  padding-top: 0px;
+  padding-bottom: 30px;
+}
+.modal-body > * {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.modal-body label {
+  display: block;
+  padding: 5px 0px 0px 0px;
+  margin: 0px auto 5px auto;
+}
+.modal-body fieldset {
+  margin-top: 10px;
+  margin: 10px auto 0px;
+}
+.modal-body fieldset > * {
+  margin-right: 10px;
+}
+.modal-body legend {
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.modal-body .soc_icon li {
+  display: inline-block;
+  width: 13.7%;
+  margin-right: 10px;
+}
+.modal-body .soc_icon li a {
+  width: 100%;
+  margin-bottom: 0px;
+}
+.modal-body .soc_icon li a:hover,
+.modal-body .soc_icon li a:focus {
+  text-decoration: none;
+  color: #ffffff;
+}
+.modal-body button {
+  margin-bottom: 0px;
+}
+footer {
+  padding-top: 10px;
+  text-align: center;
+}
+/* Конец стилей для основной страницы___________________________________*/
+/*Медизапросы____________________________________________________________*/
+@media (max-width: 1024px) {
+  .entrance button,
+  .entrance label[class*="btn"] {
+    margin-left: 0px;
+  }
+}
+@media (max-width: 768px) {
+  .balert_aspect {
+    max-height: 400px;
+  }
+  .main article.balert_aspect .aspect_text {
+    width: 96%;
+  }
+  .demonctration input[type="button"] {
+    width: 31%;
+  }
+  .entrance button {
+    width: 22.22222222%;
+  }
+  .entrance label[class*="btn"] {
+    width: 44.44444444%;
+  }
+  .entrance button,
+  .entrance label[class*="btn"] {
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .header_button-container > * {
+    display: inline-block;
+    margin-right: 0px;
+    float: none;
+  }
+  .balert_aspect {
+    overflow: auto;
+    max-height: none;
+  }
+  .main article.balert_aspect .aspect_text {
+    position: static;
+    background: none;
+    height: auto;
+    width: 100%;
+    padding: 0px;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    -webkit-opacity: 1;
+    -o-opacity: 1;
+    opacity: 1;
+    -moz-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  .main article.balert_aspect p {
+    text-align: center;
+  }
+  .demonctration input[type="button"] {
+    width: auto;
+  }
+  label .valid_invalid {
+    width: 5%;
+  }
+  .entrance .input_1 {
+    width: 55%;
+  }
+  .entrance button,
+  .entrance label[class*="btn"] {
+    width: 100%;
+  }
+  .entrance button {
+    margin-bottom: 15px;
+  }
+  .modal-container label .input-name {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .modal-container .soc_icon li {
+    width: 30.33333333%;
+    margin-right: 0px;
+  }
+  .modal-container button {
+    width: 96%;
+    margin-right: 0px;
+  }
+}
+/* Конец основных медиазапросов.................................................*/
+/*СТИЛИ ДЛЯ СТРАНИЦЫ ПРОФИЛИ..................................................*/
+.profil_page {
+  /*Кнопка выйти в заголовке хедера	*/
+  /*Блок с персональной информацией	*/
+  /*Контейнер с фото*/
+  /*Кнопка "Дополнительно"*/
+  /*	Класс устанавливающий границу для блоков */
+  /*Медиаскрины для чекедов */
+  /*	Цветовая схема таба*/
+  /*Медиаапросы для странички профиля----------------------------------------------------------------------*/
+}
+.profil_page .header {
+  margin-bottom: 22px;
+}
+.profil_page header form {
+  padding: 0px;
+}
+.profil_page .header_button--exit {
+  margin-bottom: 0px;
+}
+.profil_page .wrapper > * {
+  margin-top: 12px;
+}
+.profil_page .all-statistic,
+.profil_page .profil_page_news,
+.profil_page .profil_page_otput-statistic {
+  margin-bottom: 30px;
+}
+.profil_page .profil-info {
+  color: #000000;
+  font-weight: bold;
+}
+.profil_page .profil-info div {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+.profil_page .profil-info div:before,
+.profil_page .profil-info div:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.profil_page .profil-info div span:first-child {
+  float: left;
+  font-weight: normal;
+  color: #888888;
+}
+.profil_page .profil-info div span:last-child {
+  float: right;
+}
+.profil_page .profil-info_foto {
+  position: relative;
+  float: left;
+  height: 120px;
+  overflow: hidden;
+  padding-left: 0;
+  padding-right: 0;
+}
+.profil_page .profil-info_foto img {
+  max-width: 147px;
+}
+.profil_page .profil-info_foto > * {
+  -ms-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+}
+.profil_page .profil-info_foto form {
+  position: absolute;
+  top: -40%;
+  width: 100%;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  -webkit-opacity: 0;
+  -o-opacity: 0;
+  opacity: 0;
+}
+.profil_page .profil-info_foto:hover form {
+  top: 40%;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  -webkit-opacity: 1;
+  -o-opacity: 1;
+  opacity: 1;
+}
+.profil_page .profil-info_foto:hover img {
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+  -moz-opacity: 0.7;
+  -khtml-opacity: 0.7;
+  -webkit-opacity: 0.7;
+  -o-opacity: 0.7;
+  opacity: 0.7;
+}
+.profil_page .profil-info_foto img {
+  width: 100%;
+}
+.profil_page .name {
+  margin-top: 0px;
+  font-size: 18px;
+}
+.profil_page .profil-info .btn_1 {
+  font-size: 12px;
+  margin: 5px auto;
+}
+.profil_page .profil-info .btn_1 i {
+  float: left;
+  padding-right: 10px;
+}
+.profil_page .all-statistic {
+  /*Записаннве дни*/
+  /*Пропущенніе дни*/
+  /*Если вкладка развернута*/
+}
+.profil_page .all-statistic h3 {
+  margin-top: 0px;
+}
+.profil_page .all-statistic span,
+.profil_page .all-statistic time {
+  font-weight: bold;
+}
+.profil_page .all-statistic .allCountDays {
+  color: green;
+}
+.profil_page .all-statistic .CountMissDays {
+  color: red;
+}
+.profil_page .all-statistic .row {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.profil_page .all-statistic .label {
+  display: block;
+  text-align: left;
+  padding-left: 0px;
+  color: #888888;
+}
+.profil_page .all-statistic .label,
+.profil_page .all-statistic .progress,
+.profil_page .all-statistic .badge {
+  border-radius: 0px;
+}
+.profil_page .all-statistic .badge,
+.profil_page .all-statistic .label {
+  font-size: 14px;
+}
+.profil_page .all-statistic .label-success {
+  background-color: transparent;
+}
+.profil_page .all-statistic .progress {
+  background-color: rgba(39, 122, 163, 0.2);
+}
+.profil_page .all-statistic .progress-bar-success {
+  background-color: #277aa3;
+}
+.profil_page .all-statistic .statistic_details {
+  color: #888888;
+  text-align: left;
+}
+.profil_page .todays_news button[type="submit"] {
+  width: 31%;
+  margin-top: 10px;
+}
+.profil_page .profil_page_otput-statistic p {
+  margin-top: 10px;
+}
+.profil_page .profil_page_otput-statistic .datepicker {
+  margin-top: 45px;
+}
+.profil_page .profil_page_otput-statistic .row .datepicker {
+  margin-top: 0px;
+}
+.profil_page #myTab1 {
+  border-bottom-color: #64bbbe;
+}
+.profil_page #myTab1 > li > a {
+  background-color: #64bbbe;
+  border-radius: 0px;
+}
+.profil_page #myTab1 > li > a:hover,
+.profil_page #myTab1 > li.active > a,
+.profil_page #myTab1 > li.active > a:focus,
+.profil_page #myTab1 > li.active > a:hover {
+  background-color: #47a5a8;
+  color: #ffffff;
+  text-shadow: #000000 1px 1px 1px;
+}
+.profil_page .datepicker {
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Arial;
+  border-color: #1b5572;
+}
+.profil_page .datepicker,
+.profil_page .datepicker--cell,
+.profil_page .datepicker--nav-title {
+  border-radius: 0px;
+}
+.profil_page .datepicker--day-name {
+  color: #1b5572;
+}
+.profil_page .datepicker--nav-action path {
+  stroke: #1b5572;
+}
+.profil_page .datepicker--cell:hover,
+.profil_page .datepicker--nav-title:hover,
+.profil_page .datepicker--nav-action:hover {
+  background-color: rgba(27, 85, 114, 0.2);
+}
+.profil_page .datepicker--cell.-selected-,
+.profil_page .datepicker--cell.-selected-.-current- {
+  background-color: #1b5572;
+}
+.profil_page .datepicker--cell.-current- {
+  color: #000000;
+  font-weight: bold;
+}
+@media (max-width: 1024px) {
+  .profil_page_news .todays_news button[type="submit"] {
+    width: 30%;
+  }
+}
+@media (max-width: 768px) {
+  .profil_page .profil-info .profil-info_foto {
+    margin-bottom: 20px;
+  }
+  .profil_page .all-statistic .row div {
+    padding-left: 0px;
+  }
+  .profil_page .all-statistic .label {
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .profil_page_news .todays_news button[type="submit"] {
+    width: 66.66666667%;
+  }
+  .profil_page_otput-statistic .nav > li > a {
+    padding: 10px 9px;
+  }
+}
+/*Конец стилей для странички профиля----------------------------------------------------------------------*/
