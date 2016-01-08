@@ -3,11 +3,16 @@
 <html lang="ru" >
 <head>
 
- <meta charset="utf-8">
-<meta http-equiv="refresh" content="300" >
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="1300" >
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
 <title>Главное меню</title>
+
+<link  rel= "stylesheet" href="css/font-awesome.css" />
+
+ <!--Стили bootstrap-->
+<link  rel= "stylesheet" href="bootstrap/bootstrap.min.css" />
 
 <!--Авторские стили-->
 <link  rel= "stylesheet" href="css/ballert_style.css" />
@@ -32,268 +37,332 @@
 
 </head>
 <body  >
-<section class="all main">
+<section class="all main container">
 
 <!--Заголовок-->
   <header class="header">
-  
-       <img src="images/galery/fon_v2.jpg"
-       class="center-block"
-       alt=""/> 
-      
-<!--      Блок с кнопками-->
-       <div class="header_button-container">
-       
-          <div 
-          class="
-          button-container_button--registration
-           btn_1">
-              Зарегистрироваться
-          </div>
-          
+
+  <div class="row" >
+
+<!--      Блок с текстом-->
+	  <div class="header_header-text col-lg-9 col-md-6 col-sm-6  col-xs-12" >
+	  	<h1>BAlert</h1>
+	  </div>
+ 
+  <!--      Блок с кнопками-->
+       <div class="header_button-container col-lg-3 col-md-6 col-sm-6  col-xs-12">
+
           <div 
           class="button-container_button--enter 
           btn_1 buttonHasHyperlink">
-              <a href="#entrance_button">
+              <a href="#entrance">
               Войти в профиль
+              <i class="fa fa-sign-in"></i>
               </a>
           </div>
           
        </div>
-   
+
+     </div> 
   </header>
   <!--Конец заголовка-->
   
 <!--  Описание Балерта-->
-    <h1>BAlert</h1>
-    <h3>cистема эффективности</h3>
-    <article>
+    
+    <article class="description">
         <p>Эта интересная система,
          которая позволяет каждый
         день проводить более 
         эффективно и проживать жизнь
+        с удовольствием. Эта интересная система,
+         которая позволяет каждый
+        день проводить более 
+        эффективно и проживать жизнь
+        с удовольствием. Эта интересная система,
+         которая позволяет каждый
+        день проводить более 
+        эффективно и проживать жизнь
         с удовольствием.</p>
+
+
     </article>
   
   
-    <!--План-->
-    <h3> B: план (blueprint)</h3>
-    <article>
-    <img src="images/galery/plan_v2.jpg"
-            alt="План" title="План"/>
+ <div class="row">
+    <!--План-->  
+    <article class="balert_aspect col-lg-6 col-md-6 col-sm-12  col-xs-12">
+	    <h3> B: план (blueprint)</h3>
 
-    <p>Составляйте план на день с вечера,  внесите в него только самые важные дела, встречи.</p>
-     <blockquote> Каждый хорошо построенный дом  начинался с плана.(Наполеон Хилл)</blockquote>
+	    <div class="aspect_text">
+	        <h4>Каждый хорошо построенный дом  начинался с плана.(Наполеон Хилл)</h4>
+		    <p>Составляйте план на день с вечера,  внесите в него только самые важные дела, встречи.</p>
+	    </div>
+	      
+	    <img src="images/galery/plan_v2.jpg"
+	            alt="План" title="План"/>
+
     </article>
   
 <!--Активность-->
-  <h3>A: действие (action)</h3>
-  <article>
+  
+  <article class="balert_aspect col-lg-6 col-md-6 col-sm-12  col-xs-12 " >
+
+      <h3>A: действие (action)</h3>
+
+      <div class="aspect_text">
+		<h4>Единственное, 
+		чем отличаются победители от лузеров, –
+		победители действуют!(Энтони Роббинс)</h4>
+		<p>Делайте только то, что принесет максимальные
+		результаты. Не бойтесь неудач. Научитесь отказывать
+		и не делать остальное.</p>
+	  </div>
+
       <img src="images/galery/action_v2.jpg"
        alt="действие (action)" title="действие (action)"/>
-      <p>Делайте только то, что принесет максимальные
-      результаты. Не бойтесь неудач. Научитесь отказывать
-      и не делать остальное.</p>
       
+      <!-- 
+      <p></p>
       <blockquote>
-      Единственное, 
-      чем отличаются победители от лузеров, –
-      победители действуют!(Энтони Роббинс)
-      </blockquote>
+      
+      </blockquote> -->
   </article>
+</div>
 
-<!--Обучение-->
-    <h3>L: обучение (learning)</h3>
-    <article>
+
+<div class="row" >
+<!--Обучение-->    
+    <article class="balert_aspect col-lg-6 col-md-6 col-sm-12  col-xs-12" >
+		   <h3>L: обучение (learning)</h3> 
+
+		   <div class="aspect_text">
+
+				<h4>Единственное, 
+				чем отличаются победители от лузеров, –
+				победители действуют!(Энтони Роббинс)</h4>
+
+				<p>Заведите привычку
+				выделять время на самообразование 
+				каждый день. 
+				</p>
+
+				<p>
+				Запланируйте с вечера 30-60 минут.
+				Вы можете потратить их на
+				чтение книги или журнала,
+				прослушивание 
+				аудио-книги, 
+				просмотр мотивирующего
+				видео-ролика.
+				Это можно делать когда вы 
+				стоите в
+				пробке, или по дороге на работу,
+				или после обеда.
+				</p>
+
+		  </div>
+
            <img src="images/galery/learning.jpg"
            alt="обучение (learning)" title="обучение (learning)"/>
            
-          <p>Заведите привычку
-          выделять время на самообразование 
-          каждый день. 
-          </p>
-          
-          <p>
-          Запланируйте с вечера 30-60 минут.
-          Вы можете потратить их на
-          чтение книги или журнала,
-          прослушивание 
-          аудио-книги, 
-          просмотр мотивирующего
-          видео-ролика.
-          Это можно делать когда вы 
-          стоите в
-          пробке, или по дороге на работу,
-          или после обеда.
-          </p>
+          <!-- 
+           -->
            
     </article>
   
-
     <!--Физическая нагрузка -->
-    <h3>E: Физическая нагрузка (Exercises)</h3>
-    <article>
-    <img src="images/galery/exersisejpg_v2.jpg"
-        alt="Физическая нагрузка (Exercises)" title="Физическая нагрузка (Exercises)"/>
+    
+    <article class="balert_aspect col-lg-6 col-md-6 col-sm-12  col-xs-12 " >
+	    <h3>E: Физическая нагрузка (Exercises)</h3>
+
+	    <div class="aspect_text">
+			<h4>Единственное, 
+			чем отличаются победители от лузеров, –
+			победители действуют!(Энтони Роббинс)</h4>
+
+			<p>Выделяйте каждый день 
+			20-30 минут на физические
+			упражнения — 
+			это может быть растяжка или пробежка,
+			или просто пешая прогулка в ускоренном темпе.
+			</p>
+
+			<p>Если не хватает
+			самодисциплины — найдите личного
+			тренера, платите ему деньги 
+			за то, что он будет вас
+			мотивировать.</p>
+	  </div>
+
+	    <img src="images/galery/exersisejpg_v2.jpg"
+	        alt="Физическая нагрузка (Exercises)" title="Физическая нагрузка (Exercises)"/>
         
-        <p>Выделяйте каждый день 
-        20-30 минут на физические
-        упражнения — 
-        это может быть растяжка или пробежка,
-        или просто пешая прогулка в ускоренном темпе.
-        </p>
-        
-        <p>Если не хватает
-         самодисциплины — найдите личного
-        тренера, платите ему деньги 
-        за то, что он будет вас
-        мотивировать.</p>
+       <!--  
+         -->
         
     </article>
+</div>
 
 
+<div class="row">
 <!-- отдых-->
-    <h3>R: отдых (relaxing)</h3>
-    <article>
+    
+    <article class="balert_aspect col-lg-6 col-md-6 col-sm-12  col-xs-12 " >
+	    <h3>R: отдых (relaxing)</h3>
+
+	    <div class="aspect_text">
+
+			<h4>Единственное, 
+			чем отличаются победители от лузеров, –
+			победители действуют!(Энтони Роббинс)</h4>
+
+			<p>Отдыхайте каждый день в 
+			середине рабочего дня.
+			Если получается — вздремните полчаса-час.
+			Если нет — закройте глаза и расслабьтесь
+			под любимую музыку</p>
+
+			<p>Планируйте мини-отпуски в
+			3-4 дня, придумывайте
+			в какие интересные места поедете.
+			Во время отдыха
+			выключайте телефон и не делайте ничего,
+			что относится к работе</p>
+
+	  </div>
+
         <img src="images/galery/relaxing_v2.jpg"
         alt="отдых (relaxing)" 
         title="отдых (relaxing)"/>
         
-        <p>Отдыхайте каждый день в 
-        середине рабочего дня.
-        Если получается — вздремните полчаса-час.
-        Если нет — закройте глаза и расслабьтесь
-        под любимую музыку</p>
-        <p>Планируйте мини-отпуски в
-        3-4 дня, придумывайте
-        в какие интересные места поедете.
-        Во время отдыха
-        выключайте телефон и не делайте ничего,
-        что относится к работе</p>
+        <!-- 
+         -->
         
     </article>
 
-  
   <!--Думать позитивно-->
-    <h3>T: Думать позитивно (Thinking)</h3>
-    <article>
-        <img src="images/galery/thinking_v2.jpg"
+    
+    <article class="balert_aspect col-lg-6 col-md-6 col-sm-12  col-xs-12" >
+
+	    <h3>T: Думать позитивно (Thinking)</h3>
+
+	    <div class="aspect_text">
+
+			<h4>Единственное, 
+			чем отличаются победители от лузеров, –
+			победители действуют!(Энтони Роббинс)</h4>
+
+			<p>Перед сном или после 
+			событий дня пробегитесь
+			мысленно по сегодняшнему дню — подумайте что
+			успели, а что нет. 
+			По какой причине?
+			Что у вас хорошо
+			получилось, а что не очень?
+			</p>
+
+			<p>Как можно сделать еще лучше?</p>
+
+			<p> 
+			Подобные размышления очень сильно повышают
+			вашу эффективность и позволяют вам учиться на
+			своих сильных сторонах, 
+			и извлекать уроки из ошибок.
+			</p>
+	  </div>
+
+        <img src="images/galery/132604_big.jpg"
         alt="Думать позитивно (Thinking)"
         title="Думать позитивно (Thinking)"/>
         
-        <p>Перед сном или после 
-        событий дня пробегитесь
-        мысленно по сегодняшнему дню — подумайте что
-        успели, а что нет. 
-        По какой причине?
-        Что у вас хорошо
-        получилось, а что не очень?
-        </p>
-        
-        <p>Как можно сделать еще лучше.</p>
-        
-        <p> 
-        Подобные размышления очень сильно повышают
-        вашу эффективность и позволяют вам учиться на
-        своих сильных сторонах, 
-        и извлекать уроки из ошибок.
-        </p>
+       
         
     </article>
-  
+</div> 
+
   <!--Блок - Проверьте себя-->
-    <h2>Проверьте себя ;)</h2>
-    <h3>чем вы занимались сегодня?</h3>
-    <article class="demonctration" >
+	<hgroup>
+		<h2>Проверьте себя ;)</h2>
+		<h3>чем вы занимались сегодня?</h3>
+	</hgroup>
+    <article  >
     
-        <form  class="center-block">
-                <div>
-  <label>
-    <input type="checkbox"
-                    class="inline-block"
-                    name="CheckboxGroup1"
-                    value="Планировали" 
-                    id="CheckboxGroup1_0">
-    <span class=" inline-block
-                    input-name--append" >
-      Планировали 
-      </span>
-  </label>
-                  
-                  
-                  <label>
-                    <input type="checkbox" 
-                    class="inline-block" 
-                    name="CheckboxGroup1_" 
-                    value="Действовали" 
-                    id="CheckboxGroup1_1">
-                    <span class=" inline-block
-                     input-name--append" >
-                    Действовали
-                    </span>
-                    </label>
-                  
-                  
-                  
-                  <label>
-                    <input type="checkbox" 
-                    class="inline-block" 
-                    name="CheckboxGroup1_"
-                    value="Обучались" 
-                    id="CheckboxGroup1_2">
-                    <span class=" inline-block
-                    input-name--append" > 
-                    Обучались
-                    </span>
-                    
-                    </label>
-                  
-                  
-                  <label>
-                    
-                    <input type="checkbox"
-                     class="inline-block" 
-                    name="CheckboxGroup1_"
-                    value="Делали упражнения"
-                     id="CheckboxGroup1_3">
-                    <span class=" inline-block
-                     input-name--append" >
-                    Делали упражнения
-                    </span>
-                    
-                    </label>
-                  
-                  
-                  
-                  <label>
-                    
-                    <input type="checkbox"
-                     class="inline-block" 
-                    name="CheckboxGroup1_" 
-                    value="Отдыхали"
-                     id="CheckboxGroup1_4">
-                    <span class=" inline-block
-                      input-name--append" >
-                    Отдыхали
-                    </span>
-                    
-                    </label>
-                  
-                  
-                  <label>
-                    
-                    <input type="checkbox"
-                     class="inline-block" 
-                    name="CheckboxGroup1_" 
-                    value="Думали позитивно"
-                     id="CheckboxGroup1_5">
-                    <span class=" inline-block
-                     input-name--append" >
-                    Думали позитивно
-                    </span>
-                    
-                    </label>
-                </div>
+        <form  class="center-block demonctration">
+                <ul class="row" >
+				 
+				 <li class="col-lg-2 col-md-4 col-sm-4  col-xs-12" >	
+					<input type="checkbox"
+					class="inline-block"
+					name="CheckboxGroup1"
+					value="Планировали" 
+					id="CheckboxGroup1_0"  >
+
+					<label for="CheckboxGroup1_0" class="btn_1"  >
+					Планировали 
+					</label>
+				 </li>
+
+
+				 <li class="col-lg-2 col-md-4 col-sm-4  col-xs-12" >
+					<input type="checkbox" 
+					class="inline-block" 
+					name="CheckboxGroup1_" 
+					value="Действовали" 
+					id="CheckboxGroup1_1" >
+
+					<label for="CheckboxGroup1_1" class="btn_1" >
+					Действовали
+					</label>
+				 </li>
+
+				 <li class="col-lg-2 col-md-4 col-sm-4  col-xs-12" >
+					<input type="checkbox" 
+					class="inline-block" 
+					name="CheckboxGroup1_"
+					value="Обучались" 
+					id="CheckboxGroup1_2" >
+
+					<label for="CheckboxGroup1_2" class="btn_1"  >
+					Обучались
+					</label>
+				 </li>
+
+				 <li class="col-lg-2 col-md-4 col-sm-4  col-xs-12"  >
+					<input type="checkbox"
+					class="inline-block" 
+					name="CheckboxGroup1_"
+					value="Делали упражнения"
+					id="CheckboxGroup1_3" >
+
+					<label for="CheckboxGroup1_3" class="btn_1"  >
+					Делали упражнения
+					</label>
+				 </li>
+
+				 <li class="col-lg-2 col-md-4 col-sm-4  col-xs-12" >
+					<input type="checkbox"
+					class="inline-block" 
+					name="CheckboxGroup1_" 
+					value="Отдыхали"
+					id="CheckboxGroup1_4"  >
+
+					<label for="CheckboxGroup1_4" class="btn_1"  >
+					Отдыхали
+					</label>
+				 </li>
+
+				 <li class="col-lg-2 col-md-4 col-sm-4  col-xs-12" >
+					<input type="checkbox"
+					class="inline-block" 
+					name="CheckboxGroup1_" 
+					value="Думали позитивно"
+					id="CheckboxGroup1_5" >
+
+					<label for="CheckboxGroup1_5" class="btn_1"  >
+					Думали позитивно
+					</label>
+				 </li>
+                </ul>
               
  
                 <input type="button" 
@@ -318,21 +387,32 @@
   
   
   <!--Что еще позволяет делать сайт-->
-    <h3>Что еще позволяет делать сайт</h3>
+  <h3>Что еще позволяет делать сайт</h3>
+
+  <article class="row" >
+
+	  <div class="other_possibility col-lg-4 col-md-4 col-sm-12  col-xs-12" >
+		  <h5>Результаты за выбранный промежуток времени</h5>
+		  <img src="images/galery/diagr_v2.jpg" alt=""/>
+	  </div>
+
+	  <div class="other_possibility col-lg-4 col-md-4 col-sm-12 col-xs-12" >
+		  <h5>Глобальная статистика по всем пользователям</h5>
+		  <img src="images/galery/diagr_v2.jpg" alt=""/>
+	  </div>
+
+	  <div class="other_possibility col-lg-4 col-md-4 col-sm-12  col-xs-12" >
+		  <h5>Рекомендации и выводы о вашем распорядке дня</h5>
+		  <img src="images/galery/diagr_v2.jpg" alt=""/>
+	  </div>
+
+  </article>
+    
     <article>
-        <img src="images/galery/diagr_v2.jpg" alt=""/>
         
-        <p>Перечисляем то,
-        какие преимущества
-        дает регистрация
-        на сайте.
-         Диаграммы, выводы результатов за неделю,
-        месяц, рекомендации и выводы о распорядке дня.
-        </p>
-        
-        <p>Предлагаем зарегистрироваться 
+        <h3>Зарегистрироваться 
         или войти в профиль
-        </p>
+        </h3>
 
 <!--Форма для входа в профиль-->
 
@@ -341,7 +421,7 @@
         
       <!--  Логин-->
           
-            <label class="center-block">
+            <label class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <span class="input-name 
                 inline-block" >Логин</span>
                 
@@ -356,7 +436,7 @@
         
       <!--  Пароль-->
      
-            <label class="center-block" >
+            <label class="col-lg-4 col-md-4 col-sm-6  col-xs-12" >
                 <span 
                 class="input-name 
                 inline-block" >Пароль</span>
@@ -367,23 +447,26 @@
             </label>
            
             
-            <fieldset>
+            <fieldset class="col-lg-4 col-md-4 col-sm-12  col-xs-12" >
             
                 <button type="submit" 
                  name="submit" value="submit" 
-                 class="btn_3 
+                 class="btn_1 
                  inline-block entrance_submit" 
                  >Войти
                  </button>
                  
-                <button 
-                class="btn_3 
+                <!-- <button 
+                class="btn_1 
                 inline-block entrance_button--registration"
                 
                 id="entrance_button"
                 >
                     Зарегистрироваться
-                </button>
+                </button> -->
+
+                <label class="btn_1 
+                inline-block entrance_button--registration" for="modal-2" title="Контактная форма в модальном окне">Зарегистрироваться</label>
                 
             </fieldset>
         
@@ -391,18 +474,28 @@
 
 
 
-<!--Форма регистрации-->
-        <form action="php/registration.php" 
+
+     
+  
+    </article>
+
+
+</section>
+
+<div class="modal-container">
+  <input type="checkbox" hidden="" id="modal-2" class="modal-open">
+  <div role="dialog" aria-hidden="true" class="modal-wrap">
+    <label for="modal-2" class="modal-overlay"></label>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <label aria-hidden="true" for="modal-2" class="btn-close">×</label>
+      </div>
+      <div class="modal-body">
+          <form action="php/registration.php" 
         id="reg" 
-        class="reg hidden_Block reg_top-place"
         enctype="multipart/form-data"
         method="post">
-        
-        
-      <!-- 1-й ряд-->
-            <div class="reg_row">
-            
-                <label>
+	         <label>
                 
                     <span 
                     class="input-name 
@@ -422,105 +515,7 @@
                     
                 </label>
                 
-                
-                <label>
-                    <span
-                    class="input-name
-                    inline-block" >Имя</span>
-                    <input type="text" 
-                    name="name" 
-                    placeholder="Имя"
-                    class="input_1 
-                    inline-block"
-                    required>
-                    <span class=" valid_invalid" >
-                    </span>
-                </label>
-                
-            </div>
-            
-            
-            <!-- 2-й ряд-->
-            <div class="reg_row">     
-                <label>
-                    <span 
-                    class="input-name
-                     inline-block" >Фамилия</span>
-                    <input 
-                    type="text"
-                    placeholder="Фамилия"
-                     name="soname" 
-                    class="input_1
-                     inline-block"
-                    required>
-                    <span class=" valid_invalid" >
-                    </span>
-                </label>
-   
-                <label>
-<!--                Заменитель кнопки "прикрепить файл"-->
-                     <a 
-                     id="chose_file" 
-                     class="inline-block btn_1"
-                     ><i class="icon-min"></i>Прикрепить фото
-                     </a>
-                    
-      
-                    
-                    <input  type="file"
-                     name="foto" 
-                    class="inline-block"
-                     required>
-                </label>
-            </div>
-       
-            
-            
-            
-            <!-- 3-й ряд-->
-            <div class="reg_row">
-                <label>
-                
-                    <span 
-                    class="input-name
-                     inline-block" >
-                     Ваш возраст
-                     </span>
-                     
-                    <input type="number" 
-                    placeholder="Ваш возраст"
-                    class="input_1 inline-block"
-                    name="age" 
-                    required>
-                    
-                    <span class=" valid_invalid" >
-                    </span>
-                    
-                </label>                
-                
-                <label>
-                
-                    <span 
-                    class="input-name 
-                    inline-block" >
-                    Город
-                    </span>
-                    
-                    <input type="text" 
-                    placeholder="Укажите город"
-                    name="city" 
-                    class="input_1 inline-block"
-                     required>
-                    <span class=" valid_invalid" >
-                    </span>
-                    
-                </label>
-            </div>
-                
-              
-                
-            <!-- 4-й ряд-->    
-            <div class="reg_row">    
+     
                 <label>
                     <span 
                     class="input-name
@@ -546,78 +541,35 @@
                     <span class=" valid_invalid" >
                     </span>
                 </label>
-             </div>
-             
-                
-                
-             <!-- 5-й ряд-->   
-            <div class="reg_row">    
-                <label>
-                    <span 
-                    class="input-name 
-                    inline-block" >Повторите</span>
-                    <input type="password" 
-                    placeholder="Повторите пароль"
-                    class="input_1 inline-block"
-                    name="password1" required>
-                    <span class=" valid_invalid" >
-                    </span>
-                </label>
-                
-                
-                <label>
-                
-                    <p>Введите число с картинки</p>
-                
-                
-                    <span
-                    class="input-name
-                    inline-block" >
-                    <img 
-                    src="https://lh3.go
-                    ogleusercontent.com/
-                    jhuLVrIVlVcYBZxFvo8ZTC
-                    M7Iz2ZYF0gU1O5kta
-                    Jmw=w452-h207-p-no"/>
-                    </span>
-                    
-                    <input type="text" name="capcha"
-                    class="input_1 inline-block"
-                     pattern="4s4fz" required>
-                     <span class=" valid_invalid" >
-                     </span>
-                 </label>
-            </div>
-            
-             
+
+                <legend>Зарегистрироватся через соц сети</legend>
+
+                <ul class="soc_icon">
+                      <li ><a href="#" class="btn_1 fa fa-vk" ></a></li>
+                      <li ><a href="#" class="btn_1 fa fa-facebook" ></a></li>
+                      <li ><a href="#" class="btn_1 fa fa-facebook" ></a></li>
+                </ul>
+
             <fieldset>
             
            <!-- Кнопка "Зарегистрироваться"-->
                 <button type="submit"
                  form="reg" 
                 name="submit"
-                class="reg_submit btn_3 
+                class="reg_submit btn_1 
                 inline-block "
                 value="submit">
                 Зарегистрироваться
                 </button>
                 
-             <!--   Кнопка "Сброс" -->
-                <button type="reset" 
-                class="btn_3 inline-block">
-                Сброс
-                </button>
-                
-                
             </fieldset>
-                
-        </form>
-        
-  
-    </article>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-</section>
 <footer>©2015 ITmandarin</footer>
 </body>
   </html>
