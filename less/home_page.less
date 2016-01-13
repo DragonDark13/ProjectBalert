@@ -8,8 +8,7 @@ font:14px /1.7em  Arial , sans-serif;
  .all{ 
  position:relative;
 height: auto;
-margin: 0px auto;
-/*width: @min_mob_cite_width; */      
+margin: 0px auto;  
 text-align:center;
 background-color: @text-color;}
  
@@ -20,17 +19,11 @@ background-color: @text-color;}
 	.header{
 	position:relative;
 	background: @empty_checkbox_color;
-	background: @header-color--light;
+	background: @header-color;
 	position: relative;
 	margin-bottom: 12px;
 	padding-top: 3px;
 
-		/*&:after{ 
-		.after_block_full( @width:0%, @height:3px );
-		background-color: @header-color;
-		.transition(0.3s);
-		}
-*/
 			&:hover:after{ width: 100%;}
 
 		h1{
@@ -57,20 +50,17 @@ background-color: @text-color;}
 			margin-right: 15px;
 			padding-top: 5px;
 			padding-bottom: 5px;
-			/*.my_font-size(16, 14);*/
 			}
 			
 		/*Кнопка ссылкой внутри*/
 		.buttonHasHyperlink{
 		/*Убираем паддинги*/	
 		padding: 0px;
-		
-		/*Добавляем ссылке падинги равные падингам аналогичной кнопки без ссылки*/
-			// a,
-			// .header_button--exit{ 
-			//  padding: 5px 10px; 
-			//  display: inline-block;
-			// }	
+
+			a{color: @Base-color2;}
+
+			a:hover,
+			a:link{ color: @text-color;}
 		
 		}
 			
@@ -78,44 +68,59 @@ background-color: @text-color;}
 
 		/*Стили для блоков про аспекты БАЛЕРТА*/
 
-		.main article.balert_aspect{
+		.balert_aspect{
 			position: relative;
 
-			.aspect_text{
+			&:nth-child(1)  &_bg{
+				background-image: url(../images/galery/plan_v2.jpg);
+			}
+			&:nth-child(2)  &_bg{
+				background-image: url(../images/galery/action_v2.jpg);
+			}
+			&:nth-child(3)  &_bg{
+				background-image: url(../images/galery/learning.jpg);
+			}
+			&:nth-child(4)  &_bg{
+				background-image: url(../images/galery/exersise_v2.jpg);
+			}
+			&:nth-child(5)  &_bg{
+				background-image: url(../images/galery/relaxing_v2.jpg);
+			}
+			&:nth-child(6)  &_bg{
+				background-image: url(../images/galery/thinking.jpg);
+			}
+			
+			&_bg{
+			height: 336px;
+			background-size: cover;
+			background-repeat: no-repeat;
+			}
+
+			&_text{
 			position: absolute;
 			width: 95%;
 			height: 100%;
 			.my_opacity(0);
 			z-index: 2;
 			padding: 0px 20px;
-			.transition(0.3s );
+			.transition(0.4s );
 			background: fade(@text-color, 90%) ;
 			.transform( scale(1, 0)) ;
 			.transform-origin( 0% 0%);
 			}
-
-			// &:after{
-			// .after_block_full(94.9%, 0%,  42px, auto );
-			// background: @text-color;
-			// .my_opacity(0.9);
-			// z-index: 1;
-			// .transition(0.2s);
-			// }
-
 				p{margin-bottom: 5px;}
 
-			&:hover{
+			
+			&_active{
 
 				h3 {
 				background-color: darken(@header-color, 5%);
 				}
 
-				.aspect_text{
+				.balert_aspect_text{
 				.my_opacity(1);
 				 .transform( scale(1, 1)) ;
 				}
-
-				// &:after{height: 100%;}
 			}
 		}
 
@@ -173,25 +178,8 @@ background-color: @text-color;}
 			font-style:italic;		
 			}	
 		}
-			  	 
-/*Картинкм*/
-/*Ширина картинок для*/
-
-/*малых экранов*/
-@mob-device_img_max_width:100%;
-
-/*Стандартных*/
-@desctop_img_max_width:70%;
-
-/*больших*/
-@min-full-screen_img_max_width:60%;
-
-/*очень больших*/
-@max-full-screen_img_max_width:30%;
-
-	/* img {max-width: @mob-device_img_max_width;}*/
-	 
-/*	 класс для картинки которая не должна сдвигатся*/
+			  	  
+/*	класс для картинки которая не должна сдвигатся*/
 	 .article_img-center--no-float{ width: 40%;}
 	
 /*	Форма для демонстрации*/
@@ -238,7 +226,12 @@ background-color: @text-color;}
 	.demonctration{
 
 		 input[type="button"]{width: 32%; }
+	}
 
+	.demonctration+.statistic{
+		float: none;
+		.block--central_align;
+		margin-top: 38px;
 	}
 
 
@@ -247,10 +240,6 @@ background-color: @text-color;}
 	clear:both;
 	 .clearfix;
 	 margin-top: 15px;
-
-	
-	/*label{max-width: @mob_cite_width;}*/
-	
 	}
 	
 	/*Поля в форме регистрации и форме ввода*/
@@ -258,7 +247,6 @@ background-color: @text-color;}
 	.entrance{
 		 
 		 fieldset{
-			  /*background: @header-color;*/
 			  border: 0;
 			  padding-top: 7px;}
 			
@@ -289,100 +277,6 @@ background-color: @text-color;}
 
 /*Для малых*/
 @min_mob_reg_width: 305px;
-	
-	/*Класс для сокрыия закрытия меню*/
-	/*.js-reg{
-	z-index: 11;
-    position:absolute;	
-	left: 50%;
-	.transition(0.0001);
-	margin-left: -@min_mob_reg_width / 2;
-	}*/
-	
-	
-/*	Если верхняя кнопка вызывает*/
-	/*.reg_top-place{
-	top: 0px;	
-		} 
-		*/
-	/*Если нижняя кнопка вызывает*/
-	/*.reg_bottom-place{
-	bottom: 0px;	
-		}	*/
-	
-/*	Стили для формы регистрации*/
-	/*.reg{	
-	.my_width(@min_mob_reg_width, @min_mob_cite_width);
-	padding-top: 10px;
-	background: @text-color;
-	border-radius: 15px;
-	
-		label{ padding-left: 5px;
-		
-			
-		}
-	
-	}*/
-	
-/*	Класс при котором форма скрыта*/
-	  /*.hidden_Block{  
-	  .transition(0.0001);
-	  left:-99999px;
-	  }*/
-	  
-/*	  Стили для рядов в форме регистрации*/
-		/*.reg_row{
-			 .clearfix;
-			}*/
-		
-/*	Стиль для проверочной картинки	*/
-		/*.reg img {
-		width: 70px;
-		}*/
-		
-		/*Для полей и кнопки в форме регистрации*/
-		/*.reg fieldset{ 
-		padding-bottom: 15px;
-		border-radius: 0px 0 15px 15px;}
-		
-			.reg fieldset button{ 
-			margin: 0 auto;}
-			*/
-			
-			/*Заменитель кнопки "прикрепить файл"*/
-		 /* #chose_file{
-		  padding-left: 32px;
-		  }*/
-		  
-		 /* Элемнт с назваием файла*/
-		/*  #chose_file_text{
-		  padding-left: 10px;
-		  overflow:hidden;
-		    .my_font-size(12, 14);
-		  }*/
-		   
-		  /* Скрываем кнопку*/
-		 /* input[type="file"]{
-		  display: none;
-		  }*/
-		  
-		  /*Стили для элемента заменителя*/
-		 /* #chose_file.btn_1 { 
-		  position:relative;
-		  padding-top:5px; 
-		  padding-bottom:5px;
-		  margin-bottom: 0px;
-		   .my_font-size(14, 14);
-		   
-		   
-		   i{
-		   .sprite-Attachment_32;
-		   left: 0px;
-		   }
-		
-		  }*/
-		
-			
 	
 /*	Блок затемнения*/
 	
@@ -426,15 +320,16 @@ background-color: @text-color;}
     .transform(translate(-50%, 0px));
 }
 .modal-dialog {
-    background: none repeat scroll 0 0 #fefefe;
     left: 50%;
     max-width: 400px;
     position: fixed;
     top: -100%;
     .transform(translate(-50%, -400%));
     .transition;
+    margin: 0px;
     width: 80%;
     z-index: 103;
+    background: none repeat scroll 0 0 #fefefe;
 }
 
 .modal-header{
@@ -494,7 +389,7 @@ padding-bottom: 30px;
 			a:hover,
 			a:focus{ 
 			text-decoration: none;
-			color: @text-color;
+			// color: @text-color;
 		}
 	
     }
@@ -505,11 +400,157 @@ padding-bottom: 30px;
 	footer{
 	padding-top: 10px;
 	text-align:center;}
+
+	@timeline-element-width: 10.5%;
+	@timeline-body-width: 100% - (2* @timeline-element-width);
+
+	.statistic {
+
+		h3{margin-top: 0px;}
+			
+			span, time{font-weight:bold;}
+			
+			/*Записаннве дни*/
+			.count_completion_days{color:green;}
+			
+			/*Пропущенніе дни*/
+			.count_miss_days{color:red;}
+
+			/*Если вкладка развернута*/
+
+			.row{
+			width: 100%;
+			.block--central_align;
+			}
+
+					.label{
+					display: block;
+					text-align: left;
+					padding-left: 0px;
+					color: @text-color_grey;
+					}
+
+					.label ,
+					.progress ,
+					.badge{
+						border-radius: 0px
+					}
+
+					.badge,
+					.label{
+						font-size: 14px;
+					}
+
+					.label-success{ background-color: transparent;}
+
+
+							.progress{background-color: fade(lighten(@header-color, 12%), 20%);}
+							.progress-bar-success{background-color: lighten(@header-color, 12%);}
+
+
+			.statistic_details{
+				color: @text-color_grey;
+	
+				&>*{margin-bottom: 10px;}
+			}
+
+				.statistic_details_count_days,
+				.statistic_details_timeline{
+					.clearfix;
+				}
+
+				.statistic_details_timeline{
+
+					&>*{
+						padding: 0px;
+					}
+
+					.timeline_boby{
+						.base_block_for_effect;
+						background-color: @header-color;
+						border-left:  5px solid  transparent;
+						border-right: 5px solid transparent;
+
+
+						&:after{
+							.mixin_absolute_block_vertical_center_horizontal_custom;
+							 content: "";
+							 left: 0px;
+							 background-color: @text-color;
+						}
+					}
+						.timeline_boby .fa{ 
+							display: block;
+							font-size: 23px;
+							font-weight: bold;
+							color: @text-color;
+						}
+
+						.fa-angle-left{
+							float: left;
+						}
+
+						.fa-angle-right{
+							float: right;
+						}
+
+					.timeline_begin{ text-align: left;}
+
+					.timeline_final{ text-align: right;}
+				}
+
+				.statistic_details_count_days{
+
+					&>*{
+						padding: 5px;
+						text-align: center;
+					}
+
+					.statistic_details_all_count_days{
+						.block_count_days(grey);
+					}
+
+					.statistic_details_count-completion-days{
+						.block_count_days(green);
+					}
+
+					.statistic_details_count-miss-days{ 
+					.block_count_days;
+					}
+				}	
+	}
 	
 /* Конец стилей для основной страницы___________________________________*/
 
 
 /*Медизапросы____________________________________________________________*/
+
+.media_max_desktop({
+
+		.statistic_details_timeline{
+
+					&>*{
+						width: @timeline-element-width;
+					}
+
+					.timeline_boby{
+						width: @timeline-body-width ;}
+
+		}
+				
+});
+
+.media_full({
+
+	.all {width: 100%;}
+
+	.main article.balert_aspect{
+		.golden_section(1);
+
+		 .balert_aspect_text{ width: 96%;}
+	}
+
+});
 
 // desktop________________________________________________________________
 
@@ -521,8 +562,10 @@ padding-bottom: 30px;
 			label[class*="btn"]{ 
 			margin-left: 0px;
 			margin-left: 0px;}
-
 		} 
+
+		.statistic_details_count_days * span{
+	 display: block;}
 
 	});
 
@@ -532,7 +575,7 @@ padding-bottom: 30px;
 
 		.balert_aspect {max-height: 400px;}
 
-		.main article.balert_aspect .aspect_text{
+		.balert_aspect .balert_aspect_text {
 		width: 96%;
 		}
 
@@ -548,8 +591,25 @@ padding-bottom: 30px;
 
 			button,
 			label[class*="btn"]{text-align: center;}
-
 		} 
+
+	.statistic
+	 {
+
+		.row div{ 
+			padding-left: 0px;}
+
+		.label {
+			text-align: center;}
+	}
+
+	.statistic_details_count_days>*{
+		margin-top: 15px;
+	}
+
+	.statistic_details_count_days>*:nth-child(1){
+		margin-top: 5px;
+	}
 
 	});
 
@@ -568,10 +628,10 @@ padding-bottom: 30px;
 				max-height: none;
 			}
 
-			.main article.balert_aspect{
+			.balert_aspect{
 
 
-				.aspect_text{ 
+				&_text{ 
 					position: static;
 					background: none;
 					height: auto;
@@ -580,6 +640,11 @@ padding-bottom: 30px;
 					.my_opacity (1);
 					.transform(scale(1,1));
 
+				}
+
+				&_bg{
+					height: 170px;
+					background-size: 100%;
 				}
 
 				p{text-align: center;}
@@ -627,291 +692,4 @@ padding-bottom: 30px;
 
 	});
 
-
-/*Медизапросы--------начинвем с малых----------------------------------------*/
-
-
-
-
-
-/*Если экран больше 320---------------------------------------------------------------------------------*/
-@media screen and (min-width:  @mob_cite_width) {
-	
-
-/*  .all{ width: @mob_cite_width;}*/	
-  
-
-  
-  /* Заголовки*/
- 
-  
-/*  Стили для содержимого блоков*/
-
-  
-/*  Стили для картинок*/
-
-/*Стили для формы*/
-
-
-    .js-reg{
-	margin-left: -@reg_width / 2;
-	}
-	
-	.reg{
-		.my_width(@reg_width, @mob_cite_width);
-	}
-	 
-	
-}
-
-
-
-
-
-
-/*Если экран больше 360---------------------------------------------------------------------------------*/
-@media screen and (min-width:@max_mob_cite_width) {
-	
-  /*.all{ width: @max_mob_cite_width;}*/	
-  
-
-  
-  /* Заголовки*/
- 
-  
-/*  Стили для содержимого блоков*/
-
-  
-/*  Стили для картинок*/
-
-/*Стили для формы*/
-	.reg{
-		.my_width(@reg_width, @max_mob_cite_width);
-	}
-
-}
-
-
-
-
-/*Если экран больше 768---------------------------------------------------------------------------------*/
-@media screen and (min-width: @mapcase_cite_width) {
-	
-
-/*  .all{ width: @mapcase_cite_width;}*/	
-  
-  
-  /* Заголовки*/
- 
-  
-/*  Стили для содержимого блоков*/
-
-
-  
-/*  Стили для картинок*/
-
-
-/*Стили для формы*/
-
-/*Выстраивает чекбоксы в 3 строки*/
-/*.demonctration,*/
- // .profil_page_news {
-	
-	// 	form{
-	// 	width: 70%;	
-	// 	}
-		
-	// 	 label{
-	// 	width: 100% / 2;
-	// 	float:left;
-	// 	}	
-		
-	// }
-	
-
-
-	.reg{
-		.my_width(@reg_width,  @mapcase_cite_width);	
-		
-	}
-}
-
-
-
-
-/*Если экран больше 850---------------------------------------------------------------------------------*/
-@media screen and (min-width: 850px) {
-	
-	/*  Стили для содержимого блоков*/
-	article img~p {
-	margin-left:@desctop_img_max_width + 1%;		 
-	}
-	
-	/*  Стили для картинок*/
-	
-/*	article img {
-	float:left;	 
-	max-width: @desctop_img_max_width;}*/
-	
-	/*Стили для формы*/
-	
-
-}
-
-
-
-/*Если экран больше 1024---------------------------------------------------------------------------------*/
-@media screen and (min-width: @desctop_min_cite_width) {
-	
-/*  .all{ width: @desctop_min_cite_width;}	*/
-  
-  	 
-  /* Заголовки*/
- 
-  
-/*  Стили для содержимого блоков*/
-
-  
-
-  
-/*  Стили для картинок*/
-
-
-
-
-/*Стили для формы*/
-
-/*Выстраивает чекбоксы в 2 строки*/
-/*.demonctration, */
-// .profil_page_news{
-	
-// 		form{
-// 		width: 70%;	
-// 		}
-		
-// 		 label{
-// 		width: 100% / 3;
-// 		}	
-		
-// 	}
-
-	.reg{
-		.my_width(@reg_width, @desctop_min_cite_width);	
-	}
-}
-
-
-
-
-/*Если экран больше 1260---------------------------------------------------------------------------------*/
-@media screen and (min-width: @desctop_full_cite_width) {
-	
-	body {
-	width: 100%;
-/*	font:16px /1.7em  Arial , sans-serif;  */
-	}
-
-/*  .all{ 
-  width: 90%;
-  }	*/
-  
-  	 
-  /* Заголовки*/
- 
-  
-	/*  Стили для содержимого блоков*/
-	article img~p {
-	margin-left:@min-full-screen_img_max_width+ 1%;		 
-	}
-	
-	/*  Стили для картинок*/
-	
-	/*article img { 
-	max-width: @min-full-screen_img_max_width;}*/
-
-
-
-/*Стили для формы*/
-
-	
-	/*.entrance>*{
-		width:100% / 3;
-		float:left;	
-			}*/
-
-	/*.js-reg{
-	margin-left: -@reg_double_width / 2;
-	}*/
-	
-/*	Ширина формы регистрации увеличивается в два раза*/
-	.reg{
-		.my_width(@reg_double_width, @desctop_full_cite_width);
-
-		
-		label{
-		float:left;	
-		width:100% / 2;	
-			
-		}
-		
-	/*	Строки формы регострации*/
-		.reg_row{
-		padding-bottom: 5px;
-		padding-left: 5px;
-		padding-right: 5px;
-		border-bottom:solid 1px @Base-color2;
-		}
-			
-		div:last-of-type{ border-bottom: 0px ;}
-	}
-}
-
-
-/*Если экран больше 1260---------------------------------------------------------------------------------*/
-@media screen and (min-width: @desctop_max_full_cite_width) {
-
-/* .all{ 
-  max-width: 80%;
-  }	*/
-  
-  .header img{height: 600px;}
-  
-  .header_button-container{
-	left:50%;
-	margin-left: -10%;  
-	  }
-  	 
-  /* Заголовки*/
- 
-  
-	/*  Стили для содержимого блоков*/
-	article img~p {
-	margin-left:@max-full-screen_img_max_width + 1%;		 
-	}
-	
-	/*  Стили для картинок*/
-	
-	/*article img {
-	max-width:@max-full-screen_img_max_width;}*/
-
-
-
-/*Стили для формы*/
-
-
-	
-	
-	.entrance{ 
-	width: @desctop_full_cite_width;
-	 }
-	 
-	.js-reg{
-	margin-left: -((100% / 3)* 2)/ 2;
-	}
-
-/*Делает ширину формы регистрации равной 2 третям от ширины страницы*/
-	.reg{
-		width: (100% / 3)* 2;
-	}
-}
 /* Конец основных медиазапросов.................................................*/

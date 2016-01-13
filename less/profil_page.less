@@ -2,17 +2,7 @@
 
 /*СТИЛИ ДЛЯ СТРАНИЦЫ ПРОФИЛИ..................................................*/
 
-/*	Отступы по  краям*/
-	@profil_edge-padding:2.5%;
-	
-/*	Ширина без отступов*/
-    @profil_width-not-padding: 100% - (@profil_edge-padding * 2);
-	
-   @width-double_divide: @profil_width-not-padding / 2;
-   
-   @width-third_divide: @profil_width-not-padding / 3;
-	
-	
+
 .profil_page{
 
 	.header{margin-bottom: 22px;}
@@ -24,17 +14,7 @@
 /*Кнопка выйти в заголовке хедера	*/
 	
 	
-	.wrapper>*{
-		margin-top: 12px;
-		
-	}
-
-
-	article{
-	 // margin-bottom: 10px;
-	 // width:@profil_width-not-padding;
-	 // .center-block;
-	 }
+	.wrapper>*{margin-top: 12px;}
 
 	 .all-statistic,
 	 .profil_page_news,
@@ -45,18 +25,12 @@
 	
 /*Блок с персональной информацией	*/
 	.profil-info{
-	// position: relative;	
-	// min-height: 200px;	
-	// padding-left: 100px;
-	// padding-top: 15px;
 	color:@Base-color2;
 	font-weight: bold;
 	
 		div{
 		.clearfix;
-		.my_font-size(13, 14);
-		// padding-left: 5px;
-		// padding-right:5px;
+		font-size: 13px;
 		margin-bottom:5px;
 		}
 		
@@ -64,9 +38,6 @@
 			float:left;
 			font-weight:normal;
 			color: @text-color_grey;
-			// .btn--background--radius;
-			// padding:  0px 5px;	
-			// color: @text-color;
 			}
 			
 			div span:last-child{
@@ -112,12 +83,11 @@
 		
 		.name{
 		margin-top: 0px;
-		.my_font-size(18, 14);
+		font-size: 18px;
 		}
 		
 		/*Кнопка "Дополнительно"*/
 		.profil-info .btn_1{
-		// clear: both;
 		font-size: 12px;
 		margin: 5px auto;
 
@@ -126,88 +96,15 @@
 			padding-right: 10px;
 			}
 		}
-		
 
-		
 /*	Класс устанавливающий границу для блоков */
-	.profil_block--dotted
-	{
-	// color:@Base-color2;
-	// border: dotted 3px @Base-color2 ;
-	}
 	
-
-	// .all-statistic,
-	// .friends-subscriber{
-	// padding-top: 20px;
-	// padding-bottom:	20px;
-	// }
-	
-	.all-statistic {
-
-		h3{margin-top: 0px;}
-			
-			span, time{font-weight:bold;}
-			
-			/*Записаннве дни*/
-			.allCountDays{color:green;}
-			
-			/*Пропущенніе дни*/
-			.CountMissDays{color:red;}
-			
-			
-			
-			/*Если вкладка развернута*/
-
-			
-			.row{
-			width: 100%;
-			.block--central_align;
-			}
-
-			.label{
-			display: block;
-			text-align: left;
-			padding-left: 0px;
-			color: @text-color_grey;
-			}
-
-			.label ,
-			.progress ,
-			.badge{
-				border-radius: 0px
-			}
-
-			.badge,
-			.label{
-				font-size: 14px;
-			}
-
-			.label-success{ background-color: transparent;}
-
-
-			.progress{background-color: fade(lighten(@header-color, 12%), 20%);}
-			.progress-bar-success{background-color: lighten(@header-color, 12%);}
-
-			.statistic_details{ 
-				color: @text-color_grey;
-				text-align: left;
-			}	
-
-
-
-	}
-			
-	.friends-subscriber{.doudle_column;}	
-		
 	.todays_news button[type="submit"]	{
 		width: 31%;
 	margin-top: 10px;}
 
-
 /*Медиаскрины для чекедов */
 
-	
 	
  /*	Цветовая схема таба*/
 
@@ -222,23 +119,25 @@
 
  }
 		
-		#myTab1
+		#tab_for_custom_statistic
 		{
-			border-bottom-color: @header-color;
+			border-bottom-color: @btn--bg-color;
 
 			& > li > a{ 
-			background-color: @header-color;	
-		    border-radius: 0px;}
+			background-color: @btn--bg-color;	
+		    border-radius: 0px;
+		    color: @Base-color2;
+		    text-shadow: @text-color 1px 1px 1px;
+			}
 
 			& > li > a:hover,
 			&  > li.active > a, 
 			&  > li.active > a:focus,
 			 &  > li.active > a:hover
 			{ 
-			background-color: darken(@header-color, 5%);
-			background-color: @theme--bg_darkness_color;
+			background-color: @btn--hover--bg-color;
 			color: @text-color;
-			text-shadow: @Base-color2 1px 1px 1px;
+			text-shadow: none;
 			}
 		}
 
@@ -272,31 +171,30 @@
 				color: @Base-color2; 
 				font-weight: bold;}
 			}
-		
-		
 
-
-	/*Медиаапросы для странички профиля----------------------------------------------------------------------*/
 	
+	/*Медиаапросы для странички профиля----------------------------------------------------------------------*/
+
+
+
 .media_desktop({
 
-	&_news .todays_news button[type="submit"]{width: 30%;}
+	&_news .todays_news button[type="submit"]{
+		width: 30%;}
 
 });
 
 .media_tablet({
 
-	 .profil-info .profil-info_foto{ margin-bottom: 20px;}
+	 .profil-info .profil-info_foto{ 
+	 	margin-bottom: 20px;}
 
+});
 
-	.all-statistic {
-
-		.row div{ padding-left: 0px;}
-
-		.label {text-align: center;}
+.media_max_mobile_and_tablet({
+	.todays_news input[type="checkbox"] + label{
+		min-height: 48px + 35px + 10px;
 	}
-
-
 });
 
 
@@ -308,165 +206,10 @@
 
 });
 
-
-
-	
-	/*Если экран больше 360---------------------------------------------------------------------------------*/
-	@media screen and (min-width:@max_mob_cite_width) {
-		
-		
-		  /* Заголовки*/
-		  
-	/*	  Сдвигает кнопку "Выйти" в заголовке страницы профиля влево*/
-			
-		  
-	
-	
-		
-	}
-	
-	
-	/*Медиаапрос для таба, если экран меньше платшетного*/
-	@media screen and (max-width:@mapcase_cite_width) {
-		
-			/*	Стиль для вертикального таба*/
-			.tabs--vertical {
-			.clearfix;	
-			width:100%;
-		
-	/*Список вкладок передвигается влево и становится горизонтальным*/
-				ul{
-				width:50%;
-				float:left;		
-				padding-bottom: 0.2em;
-				padding-right: 0px;	
-					
-					li{
-						a{
-						float:none;
-						width: 100%;
-						}
-					}
-				}
-				
-					.ui-tabs-nav .ui-tabs-active{
-					border-right: 0px; 
-					padding-bottom:0px;
-					padding-right:1px;
-					left: 3px;
-					}
-					
-					.ui-tabs-nav li{
-					border-radius:  4px 0px 0px 4px ;
-					margin: 2px 0px; 
-					white-space:normal;
-					width: 100%; }
-				
-				div{
-				width:50%;
-				margin-left: 50%;	
-				}	
-			
-			}	
-	
-					/*Что бы в вертикальном расположении таба кнопка при нажатии не опускалась вниз*/
-					.ui-tabs .ui-tabs-nav li.ui-tabs-active { margin-bottom: 2px; }
-	
-	}
-	
-	/*Есл экран больше планшетного*/
-	@media screen and (min-width: @mapcase_cite_width) {
-	
-	/*Блок с персональной информацией смещается влево*/
-		 .profil-info{
-		// float:left;	
-		//  width:  @width-double_divide ;
-		//  .doudle_column;
-		/* Устанавливает  поле слева равное отступу*/
-		 // margin-left:@profil_edge-padding;
-		}
-		
-		/*Блок "Друзья" смещается вправо*/
-		 .friends-subscriber{
-		width: @width-double_divide ;
-		margin-left: @width-double_divide;
-		margin-right:@profil_edge-padding;
-		}
-		
-		// .all-statistic{clear:both;}		
-		
-	}
-	
-	/*Если экран больше стандартного*/
-	@media screen and (min-width: @desctop_full_cite_width) {
-	
-	/*Блоки с персональной информацией, друзьями  и статистикой, выстраиваются в две колонки*/
-		
-			.profil-info,	
-			.friends-subscriber	,
-			.all-statistic	{
-			 // width: @width-third_divide;
-			 // float:left;	
-			}
-		
-			
-			/*Блок "Друзья" смещается вправо*/
-			 .friends-subscriber{
-			margin-left: auto;
-			margin-right:auto;
-			}
-			
-		/*	Происходит выравнивание  блоков "персональная информация", "друзья" и "общая статистика"*/	
-			// .profil-info,
-			// .friends-subscriber
-			// {.third_column;}
-			
-			
-			/*Блок "Общая статистика " смещается вправо*/
-			// .all-statistic
-			// {clear:none;
-			// padding-left: 20px;
-			// padding-right:20px;		
-			// margin-right:@profil_edge-padding;
-			// }
-				
-			// .profil_page_news{clear:both;
-			
-			// form{width: 98%;}
-			// }
-			
-			
-		
-		
-	}
-	
-	
-	
-	@media screen and (min-width: 1400px) {
-	/*	Происходит выравнивание  блоков "персональная информация", "друзья" и "общая статистика"*/	
-	
-	/*При этом расширении блок "общая статистика" незначительно уменьшается, поэтому применено дополнительное выравнитвание*/
-		
-		// .profil-info,
-		// .friends-subscriber{.third_column--max_full;}
-	
-	
-	}
-	
-	
-	/*Если экран больше 1580px*/
-	@media screen and (min-width: @desctop_max_full_cite_width) {
-		
-	/*Увеличивает ширину контейнера с чекбоксанм на странице профиля	*/
-	
-
-	
-	}	
-	
-		
-		
-		
 }
+
+// .custom-statistic:extend( .all-statistic all){}
+
 
 
 /*Конец стилей для странички профиля----------------------------------------------------------------------*/

@@ -55,12 +55,6 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){
  <link  rel= "stylesheet" href="../bootstrap/bootstrap.min.css" />
 
  <!--Стили jQuery-->
- <link href="../css/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
-
- <link href="../css/jquery.ui.tabs.min.css" rel="stylesheet" type="text/css">
-
- <link href="../css/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
-
  <link href="../css/datepicker.min.css" rel="stylesheet" type="text/css">
 
 <!--Авторские стили-->
@@ -71,17 +65,8 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){
 
 <script src="../js/jquery-1.8.3.min.js" type="text/javascript"></script>
 
-<!-- <script src="../jquery.min.js" ></script> -->
-
-<!-- <script src="../js/jquery-ui-1.9.2.tabs.custom.min.js" type="text/javascript"></script> -->
-<!-- 
-<script src="../js/jquery-ui-1.9.2.button.custom.min.js" type="text/javascript"></script> -->
-
-<!-- <script src="../js/jquery.tmpl.min.js" ></script> -->
 
 <!--Скрипты bootstrap-->
-
-<!-- <script src="../bootstrap/jquery.min.js" ></script> -->
 
 <script src="../bootstrap/transition.js"></script>
 
@@ -351,7 +336,7 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){
 
             <!--Друзья и подписчики-->
            <!--  <article 
-            class="friends-subscriber profil_block--dotted">
+            class="friends-subscriber ">
             Друзья и подписчики
             </article> -->
 
@@ -390,7 +375,7 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){
                 ?>
 
             <article
-            class="all-statistic profil_block--dotted">
+            class="all-statistic  statistic">
 
                 <h3>Общая статистика пользователя по B-alert</h3>
 
@@ -421,41 +406,61 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){
 
                 <!-- Дополнительная информация -->
                 
-                <div 
-                class="statistic_details" 
-                >
-                Статистика с 
-                    <time 
-                    class="js-details_DayBegins
-                    ">
-                    </time> 
-                    
-                    по 
-                    
-                    <time 
-                    class="js-details_DayCompletion 
-                    " >
-                    </time>
-                    .
+                <div class="statistic_details">
+                    <div class="statistic_details_timeline" >
+                        <div class="timeline_begin col-lg-2 col-md-2 col-sm-2  col-xs-4">
+                            <time 
+                            >
+                            22.06.2015
+                            </time>
 
-                    Количество дней про которые 
-                     Вы вносили информацию -
-                    
-                    <span 
-                    class="js-details_allCountDays 
-                    allCountDays
-                    " >
-                    </span> 
-                    
-                    . 
-                    Пропущено дней -
-                    
-                    <span 
-                    class="js-details_CountMissDays
-                    CountMissDays
-                    ">
-                    </span> 
-                    
+                            
+                        </div> 
+
+                        <div class="timeline_boby col-lg-8 col-md-8 col-sm-8  col-xs-4">
+                            <i class="fa fa-angle-left"></i> 
+                            <i class="fa fa-angle-right"></i>
+                        </div> 
+
+                        <div class="timeline_final col-lg-2 col-md-2 col-sm-2  col-xs-4">
+
+                            <time >
+                            31.12.2015
+                            </time>
+                        </div> 
+                    </div> 
+
+                    <div class="statistic_details_count_days">
+
+                        <div class="statistic_details_all_count_days col-lg-4 col-md-4 col-sm-12  col-xs-12" >
+                           Общее количество дней -
+
+                            <span class="all_count_days">
+                            13
+                            </span> 
+
+                        </div>
+
+                        <div class="statistic_details_count-completion-days col-lg-3 col-md-3 col-sm-12  col-xs-12 col-lg-offset-1 col-md-offset-1" >
+                            Заполнено дней - 
+
+                            <span class="count_completion_days">
+                            13
+                            </span> 
+
+                        </div>
+
+                        <div class="statistic_details_count-miss-days col-lg-3 col-md-3 col-sm-12  col-xs-12 col-lg-offset-1 col-md-offset-1" >
+                            Пропущено дней - 
+
+                            <span class="count_miss_days">
+                            13
+                            </span> 
+
+                        </div>
+
+                    </div>
+
                 </div>
             
             </article>
@@ -470,7 +475,7 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){
 
       ?>
     <article 
-    class="profil_page_news profil_block--dotted" >
+    class="profil_page_news " >
 
         <h3>  Чем вы занимались сегодня?</h3>
 
@@ -562,18 +567,18 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){
 
 <!--Вывод статистики-->
     <article 
-    class="profil_page_otput-statistic profil_block--dotted"  >
+    class="profil_page_otput-statistic "  >
             <h3>Вывод статистики за:</h3>
 
             <!--Таб для выбора временного диапазона-->  
-            <ul class="nav nav-tabs" id="myTab1">
+            <ul class="nav nav-tabs" id="tab_for_custom_statistic">
                     <li class=""><a data-toggle="tab" href="#tab1" aria-expanded="false" >Месяц</a></li>
                     <li class="active"><a data-toggle="tab" href="#tab2" aria-expanded="true">День</a></li>
                     <li class=""><a data-toggle="tab" href="#tab3" aria-expanded="false">Ваш промежуток</a></li>
                     <li class=""><a data-toggle="tab" href="#tab4" aria-expanded="false">Год</a></li>
             </ul>
 
-            <div class="tab-content" id="myTabContent1">
+            <div class="tab-content" id="tab_for_custom_statistic_content">
 
                     <div id="tab1" class="tab-pane fade">
                            
@@ -626,7 +631,189 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){
 
             </div>
 
-        <div id="statistic2"></div>
+        <div id="statistic2" class="custom-statistic statistic">
+            
+
+                <h3>Выборочная статистика пользователя по B-alert</h3>
+
+               <!-- Блок с прогресс барами -->
+               <div class="row">
+
+                        <span class="label label-success col-lg-3 col-md-3 col-sm-12  col-xs-12">
+                            План                        </span>
+                            
+                        <div class="col-lg-8 col-md-8 col-sm-11  col-xs-10">
+                            <div class="progress  ">
+                                <div class="progress-bar progress-bar-success" style="width : 44%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="4" role="progressbar">
+                                <span class="sr-only">40% Complete (success)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="badge col-lg-1 col-md-1 col-sm-1  col-xs-2">
+                            44%                        </span>
+                </div>
+                <!-- Конец блока с прогрессбарами -->
+
+                               
+               <!-- Блок с прогресс барами -->
+               <div class="row">
+
+                        <span class="label label-success col-lg-3 col-md-3 col-sm-12  col-xs-12">
+                            Действие                        </span>
+                            
+                        <div class="col-lg-8 col-md-8 col-sm-11  col-xs-10">
+                            <div class="progress  ">
+                                <div class="progress-bar progress-bar-success" style="width : 98%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="4" role="progressbar">
+                                <span class="sr-only">40% Complete (success)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="badge col-lg-1 col-md-1 col-sm-1  col-xs-2">
+                            98%                        </span>
+                </div>
+                <!-- Конец блока с прогрессбарами -->
+
+                               
+               <!-- Блок с прогресс барами -->
+               <div class="row">
+
+                        <span class="label label-success col-lg-3 col-md-3 col-sm-12  col-xs-12">
+                            Обучение                        </span>
+                            
+                        <div class="col-lg-8 col-md-8 col-sm-11  col-xs-10">
+                            <div class="progress  ">
+                                <div class="progress-bar progress-bar-success" style="width : 56%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="4" role="progressbar">
+                                <span class="sr-only">40% Complete (success)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="badge col-lg-1 col-md-1 col-sm-1  col-xs-2">
+                            56%                        </span>
+                </div>
+                <!-- Конец блока с прогрессбарами -->
+
+                               
+               <!-- Блок с прогресс барами -->
+               <div class="row">
+
+                        <span class="label label-success col-lg-3 col-md-3 col-sm-12  col-xs-12">
+                            Физическая нагрузка                        </span>
+                            
+                        <div class="col-lg-8 col-md-8 col-sm-11  col-xs-10">
+                            <div class="progress  ">
+                                <div class="progress-bar progress-bar-success" style="width : 98%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="4" role="progressbar">
+                                <span class="sr-only">40% Complete (success)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="badge col-lg-1 col-md-1 col-sm-1  col-xs-2">
+                            98%                        </span>
+                </div>
+                <!-- Конец блока с прогрессбарами -->
+
+                               
+               <!-- Блок с прогресс барами -->
+               <div class="row">
+
+                        <span class="label label-success col-lg-3 col-md-3 col-sm-12  col-xs-12">
+                            Отдых                        </span>
+                            
+                        <div class="col-lg-8 col-md-8 col-sm-11  col-xs-10">
+                            <div class="progress  ">
+                                <div class="progress-bar progress-bar-success" style="width : 64%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="4" role="progressbar">
+                                <span class="sr-only">40% Complete (success)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="badge col-lg-1 col-md-1 col-sm-1  col-xs-2">
+                            64%                        </span>
+                </div>
+                <!-- Конец блока с прогрессбарами -->
+
+                               
+               <!-- Блок с прогресс барами -->
+               <div class="row">
+
+                        <span class="label label-success col-lg-3 col-md-3 col-sm-12  col-xs-12">
+                            Позитивное мышление                        </span>
+                            
+                        <div class="col-lg-8 col-md-8 col-sm-11  col-xs-10">
+                            <div class="progress  ">
+                                <div class="progress-bar progress-bar-success" style="width : 38%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="4" role="progressbar">
+                                <span class="sr-only">40% Complete (success)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="badge col-lg-1 col-md-1 col-sm-1  col-xs-2">
+                            38%                        </span>
+                </div>
+                <!-- Конец блока с прогрессбарами -->
+
+                
+                <!-- Дополнительная информация -->
+                <div class="statistic_details">
+                    <div class="statistic_details_timeline" >
+                        <div class="timeline_begin col-lg-2 col-md-2 col-sm-2  col-xs-4">
+                            <time>
+                            22.06.2015
+                            </time>
+
+                            
+                        </div> 
+
+                        <div class="timeline_boby col-lg-8 col-md-8 col-sm-8  col-xs-4">
+                            <i class="fa fa-angle-left"></i> 
+                            <i class="fa fa-angle-right"></i>
+                        </div> 
+
+                        <div class="timeline_final col-lg-2 col-md-2 col-sm-2  col-xs-4">
+
+                            <time >
+                            31.12.2015
+                            </time>
+                        </div> 
+                    </div> 
+
+                     <div class="statistic_details_count_days">
+
+                        <div class="statistic_details_all_count_days col-lg-4 col-md-4 col-sm-12  col-xs-12" >
+                           Общее количество дней -
+
+                            <span class="all_count_days">
+                            13
+                            </span> 
+
+                        </div>
+
+                        <div class="statistic_details_count-completion-days col-lg-3 col-md-3 col-sm-12  col-xs-12 col-lg-offset-1 col-md-offset-1" >
+                            Заполнено дней - 
+
+                            <span class="count_completion_days">
+                            13
+                            </span> 
+
+                        </div>
+
+                        <div class="statistic_details_count-miss-days col-lg-3 col-md-3 col-sm-12  col-xs-12 col-lg-offset-1 col-md-offset-1" >
+                            Пропущено дней - 
+
+                            <span class="count_miss_days">
+                            13
+                            </span> 
+
+                        </div>
+
+                    </div>
+
+                </div>
+            
+        </div>
 
     </article>
 

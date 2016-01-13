@@ -56,8 +56,6 @@ border: 0px;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";}
 	&:focus:-ms-input-placeholder      {.my_opacity(0);
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";}
-	
-		
 		
 }
 
@@ -76,8 +74,20 @@ input[type="submit"]
 @Base-color2: #000;
 @text-color: #fff;
 /*@header-color: #eb9d16;*/
-@header-color:#34A900;
+@theme--color1: darken(#25c0c0, 25%) ;
+@theme--color2: #78932a ;
+@theme--color3: #1b5572;
+// @header-color:#257500;
+@header-color: @theme--color3 ;
+// @header-color:spin(#257500, 80%) ;
 
+@btn--bg--color1:#25c0c0;
+@btn--bg--color2:#2887b5;
+@btn--bg--color3:#64bbbe;
+@btn--bg--color4:#FFEF2A;
+@btn--bg-color: @btn--bg--color4;
+@btn--hover--bg-color: darken(@btn--bg--color4, 20%);
+// @btn--bg-color: #757400;
 @empty_checkbox_color:#99dd00;
 
 @header-color--light: lighten(@header-color, 8%);
@@ -129,41 +139,14 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 
 
 /* Устанавливает боксовую модель для всех элементов 
-странички и делает их блочными ---------------------------------------------*/
+странички  ---------------------------------------------*/
 .all *{
 .box-sizing(border-box);
-// display:block;
 }	
-
-/* Переменные ширины для медиазапросов-------------------*/
-@desctop_max_full_1920_cite_width:1920px;
-@desctop_max_full_cite_width:1580px;
-@desctop_full_cite_width:1260px;
-@desctop_min_cite_width:1024px;
-@mapcase_cite_width:768px;
-@max_mob_cite_width:480px;
- @mob_cite_width:360px;
-@min_mob_cite_width:320px;
 
 
 	/*	Общие стилии для блоков Профиль- "Персональная информация"  и Профиль-"Друзья"	*/
 			
-	
-	
-	/*Если блоки Профиль- "Персональная информация"  и Профиль-"Друзья" выстроились в две колонки*/
-	.doudle_column(){
-	overflow-y: scroll;
-	height: 200px;}
-		
-	/*Если блоки Профиль- "Персональная информация" , 
-	Профиль-"Друзья" и 
-	Профиль-"Общая статистика"
-	 выстроились в три колонки*/
-	.third_column(){
-	height: 527px;}	
-
-	.third_column--max_full(){
-	height: 500px;}	
 /*Общие стили-------------------------------------------------------*/
 
 /*Размещает блок по центру*/
@@ -194,18 +177,18 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 	}
 	
 	h2{
-	.my_font-size(24, 14);
+	font-size:24px ;
 	line-height: 1.2em;
 	 }
 	 
 	 h3,
 	 h1{
 	.box-sizing(padding-box); 
-		 }
+	}
 	 
 	 h3{
 	padding: 10px 0px;	 
-	.my_font-size(20, 14);
+	font-size: 20px;
 	 }
 	
 /*	Кнопки*/
@@ -216,40 +199,47 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 	.pointer;
 	.word-wrap;	
 	color: @text-color;
+	color: @Base-color2;
 	}
 	
 	 .btn_1,
 	 .btn_3{
 	font-weight:bold; 
 	margin-bottom: 25px; 
-		 }
+	}
 		 
 		 
 	
 /*Кнопки в Хедере главной страницы, блоке демонстрации, в блоке записи данных на персональной*/
 	.btn_1{
 	padding: 10px;		
-	/*box-shadow: 2px 5px 1.72px 0.28px rgba(0, 0, 2, 0.68);
-	.transition(0.2s);*/
-	background-color: @header-color;	
+	background-color:@btn--bg-color;	
 	text-shadow: @Base-color2 1px 1px 1px;
+	text-shadow: @text-color 1px 1px 1px;
 	
 		&:hover, &:focus{
-		background-color: darken(@header-color, 5%);
-		/*box-shadow: 2px 5px 1.72px 0.28px rgba(0, 0, 2, 0.68) ;*/
+		background-color: @btn--hover--bg-color;
+		color: @text-color;
+		text-shadow: none;
 		}
 
 			&:hover a{
 			text-decoration: none;
 			color: @text-color;
+			text-shadow: none;
 			}
 		
 			&:active{
-			/*background-color: darken(@header-color, 14%);*/
-			/*box-shadow: 0px 3px 1.72px 2px rgba(0, 0, 2, 0.68) ;*/
 			}
 
-			&[disabled]{background-color: fade(@header-color, 30%) }	
+			&[disabled]{
+			background-color: fade(@btn--bg-color, 30%) ;
+
+				&:hover{ 
+				color:  @Base-color2 ;
+				text-shadow: @text-color 1px 1px 1px;
+				}
+			}	
 
 			&>a{
 			line-height: 	16.6667px;
@@ -260,34 +250,13 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 				font-size: 16px;}
 		}
 		
-	/*	Стили для кнопки в заголовке страницы профиля*/
-		.btn_2{
-		border: @Base-color2 solid 2px;	
-		background:none; 
-		
-			&:hover, &:focus{
-			background-color: @theme--bg_darkness_color;
-			background-color: rgba(0, 0, 0, 0.3) ;
-			box-shadow: 0px 0px 0px 2px @Base-color2 ;	
-			}
-			
-				&:active{
-				text-shadow: @Base-color2 1px 1px 1px;		
-				background-color: darken(@header-color, 14%);
-				background-color: rgba(0, 0, 0, 0.5) ;
-				
-				}		
-			
-			}
-		
 /*		Стили для инпутов - на главной в блоках - демонстрация,
 		вход,
 		регистрация. На персональной, в блоке ввида данных.*/
 		.input_1{
 		border: 1px solid lighten(@Base-color2, 50%);
 		padding: 5px;
-		/*border-radius: 3px;	*/
-		
+
 		    &:hover{
 			border: 1px solid @Base-color2;
 			box-shadow: 1px 1px 1px 2px lighten(@Base-color2, 50%) ;
@@ -298,64 +267,6 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 				box-shadow: 1px 1px 1px 2px @Base-color2;
 				}
 	}
-	
-	/*Кнопки для форм регистрация и вход на главной*/
-			.btn_3{background: @Base-color2;
-					border-radius: 10px; 
-					box-shadow:3px 3px 2.72px 0.28px darken(@header-color, 30%) ,
-					3px 3px 2.72px 0.28px lighten(@Base-color2, 70%) inset;
-					
-					
-						&:hover, &:focus{
-						background: lighten(@Base-color2, 30%);
-						box-shadow:3px 3px 2.72px 1px darken(@header-color, 50%) ,
-						5px 5px 2.72px 0.28px lighten(@Base-color2, 70%) inset;}
-						
-							&:active{
-							background: lighten(@Base-color2, 45%);
-							box-shadow:3px 3px 4px 3px darken(@header-color, 35%) ,
-							5px 5px 2.72px 0.28px lighten(@Base-color2, 85%) inset;}
-			}
-			
-			
-	
-	/*Кнопка с местом для иконки в конце*/
-			.icon_append{
-			padding-right:40px;
-			position:relative;
-			
-			/*Иконка стрелки внутри кнопки*/
-				i{
-				right: 3px;
-				
-				.sprite-Arrow_down_32;
-				border-radius: 50%;
-				border: 1px solid rgba(0, 0, 0, 0.5);
-				box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3) inset,
-				0px 1px 2px rgba(255, 255, 255, 0.5);
-				 .my_opacity(0.7);
-				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=70)";
-				}
-				
-				&:hover i{
-				background-color:@header-color;
-				background-color: rgba(255, 255, 255, 0.6);
-				 .my_opacity(1);
-				 -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=100)";
-				}
-				
-				&:active i{.transform(scale(1.4));}
-			}
-			
-			.btn_active  i{
-				.sprite-Arrow_up_32;	
-			}
-				
-				
-				/*Размер для иконок внутри кнопок ("Прикрепить","Чекбоксы", "Подробнее")*/
-				.icon-min{
-					.mixin_absolute_block-CenterCenter(@width:32px, @height:32px );
-				}
 	
 /*	Стили для Форм-----------------------------*/
 		 form{
@@ -405,12 +316,15 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 		
 /*		СПРАЙТЫ________________________________________________________________________*/
 
-	.sprite-Arrow_down_32() {  background:url(../images/sprites.png) no-repeat 0px 0px; }
-	.sprite-Arrow_up_32() {  background:url(../images/sprites.png) no-repeat 0px -32px;  }
-	.sprite-Attachment_32() { 
-	 background-image:url(../images/sprites.png)  ; 
-	background-position: -0px -64px;
-	background-repeat:no-repeat ; 
-	}
 	.sprite-Checkbox_32 (){  background:url(../images/sprites.png) no-repeat -0px -96px; }
 	.sprite-Checkbox_empty_32 (){  background:url(../images/sprites.png) no-repeat -0px -128px; }
+
+
+	// fonts
+
+@font-face {
+	font-family: 'Eras Bold ITC';
+	src: url('../fonts/ERASBD.ttf')  format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
