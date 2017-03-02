@@ -2,12 +2,20 @@
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \common\models\LoginForm */
+/* @var $login \frontend\models\LoginForm */
+/* @var $signup \frontend\models\SignupForm */
+/* @var $signupFailed \frontend\models\SignupForm */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\helpers\Url;
 
 $this->title = 'Главное меню';
+
+if (!isset($signupFailed)) {
+    $signupFailed = false;
+}
+
 ?>
 <section class="all main container">
 
@@ -496,17 +504,17 @@ $this->title = 'Главное меню';
 
         <div class="other_possibility col-lg-4 col-md-4 col-sm-12  col-xs-12" >
             <h5>Результаты за выбранный промежуток времени</h5>
-            <?= Html::img('images/galery/diagr_v2.jpg'); ?>
+            <?= Html::img('@web/images/galery/diagr_v2.jpg'); ?>
         </div>
 
         <div class="other_possibility col-lg-4 col-md-4 col-sm-12 col-xs-12" >
             <h5>Глобальная статистика по всем пользователям</h5>
-            <?= Html::img('images/galery/diagr_v2.jpg'); ?>
+            <?= Html::img('@web/images/galery/diagr_v2.jpg'); ?>
         </div>
 
         <div class="other_possibility col-lg-4 col-md-4 col-sm-12  col-xs-12" >
             <h5>Рекомендации и выводы о вашем распорядке дня</h5>
-            <?= Html::img('images/galery/diagr_v2.jpg'); ?>
+            <?= Html::img('@web/images/galery/diagr_v2.jpg'); ?>
         </div>
 
     </article>
@@ -523,68 +531,74 @@ $this->title = 'Главное меню';
         <?php $form = ActiveForm::begin(
             [
                 'id' => 'entrance',
-                'action' => 'home/login',
+                'action' =>   Url::to(['home/login']),
                 'options' => [
                     'class' => 'entrance'
                 ]
             ]);
         ?>
 
+            <?= $form->field($login, 'username')->textInput(['autofocus' => true]) ?>
+
+            <?= $form->field($login, 'password')->passwordInput() ?>
+
+            <?= $form->field($login, 'rememberMe')->checkbox() ?>
+
+
+<!--            <div style="color:#999;margin:1em 0">-->
+<!--                If you forgot your password you can --><?//= Html::a('reset it', ['site/request-password-reset']) ?><!--.-->
+<!--            </div>-->
+
+
             <!--  Логин-->
 
-            <label class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <span class="input-name
-                inline-block" >Логин</span>
-
-                <input type="text" name="login"
-                       placeholder="Введите логин"
-                       class="input_1
-                 inline-block"
-                       required>
-                <span class=" valid_invalid" ></span>
-            </label>
+<!--            <label class="col-lg-4 col-md-4 col-sm-6 col-xs-12">-->
+<!--                <span class="input-name-->
+<!--                inline-block" >Логин</span>-->
+<!---->
+<!--                <input type="text" name="login"-->
+<!--                       placeholder="Введите логин"-->
+<!--                       class="input_1-->
+<!--                 inline-block"-->
+<!--                       required>-->
+<!--                <span class=" valid_invalid" ></span>-->
+<!--            </label>-->
 
 
             <!--  Пароль-->
 
-            <label class="col-lg-4 col-md-4 col-sm-6  col-xs-12" >
-                <span
-                    class="input-name
-                inline-block" >Пароль</span>
-                <input type="password" name="password"
-                       placeholder="Введите пароль"
-                       required class="input_1 inline-block" >
-                <span class=" valid_invalid" ></span>
-            </label>
+<!--            <label class="col-lg-4 col-md-4 col-sm-6  col-xs-12" >-->
+<!--                <span-->
+<!--                    class="input-name-->
+<!--                inline-block" >Пароль</span>-->
+<!--                <input type="password" name="password"-->
+<!--                       placeholder="Введите пароль"-->
+<!--                       required class="input_1 inline-block" >-->
+<!--                <span class=" valid_invalid" ></span>-->
+<!--            </label>-->
 
 
-            <fieldset class="col-lg-4 col-md-4 col-sm-12  col-xs-12" >
-
-                <button type="submit"
-                        name="submit" value="submit"
-                        class="btn_1
-                 inline-block entrance_submit"
-                >Войти
-                </button>
-
-                <!-- <button
-                class="btn_1
-                inline-block entrance_button--registration"
-
-                id="entrance_button"
-                >
-                    Зарегистрироваться
-                </button> -->
-
-                <label class="btn_1
-                inline-block entrance_button--registration" for="modal-2" title="Контактная форма в модальном окне">Зарегистрироваться</label>
-
-            </fieldset>
+<!--            <fieldset class="col-lg-4 col-md-4 col-sm-12  col-xs-12" >-->
+<!---->
+<!--                <button type="submit"-->
+<!--                        name="submit" value="submit"-->
+<!--                        class="btn_1-->
+<!--                 inline-block entrance_submit"-->
+<!--                >Войти-->
+<!--                </button>-->
+<!--                -->
+<!---->
+                <?= Html::submitButton('Войти', ['class' => 'btn_1 inline-block entrance_submit', 'name' => 'login-button']) ?>
+                <label
+                    class="btn_1 inline-block entrance_button--registration"
+                    for="modal-2" title="Контактная форма в модальном окне"
+                    id="registr">Зарегистрироваться
+                </label>
+<!---->
+<!--            </fieldset>-->
 
 <!--        </form>-->
         <?php ActiveForm::end(); ?>
-
-
 
 
 
@@ -592,7 +606,6 @@ $this->title = 'Главное меню';
 
 
 </section>
-
 <div class="modal-container">
     <input type="checkbox" hidden="" id="modal-2" class="modal-open">
     <div role="dialog" aria-hidden="true" class="modal-wrap">
@@ -606,58 +619,64 @@ $this->title = 'Главное меню';
                 <?php $form = ActiveForm::begin(
                     [
                         'id' => 'reg',
-                        'action' => 'home/signup',
+                        'action' => Url::to(['home/signup']),
                         'options' => [
                             'enctype' => "multipart/form-data"
                         ]
                     ]);
                 ?>
-                    <label>
+                    <?= $form->field($signup, 'username')->textInput(['autofocus' => true]) ?>
 
-                    <span
-                        class="input-name
-                    inline-block" >
-                    Логин
-                    </span>
+                    <?= $form->field($signup, 'email') ?>
 
-                        <input type="text"
-                               name="login"
-                               placeholder="Логин"
-                               class="input_1 inline-block"
-                               pattern="^[A-Za-zА-Яа-яЁё]+$"
-                               required>
+                    <?= $form->field($signup, 'password')->passwordInput() ?>
 
-                    <span class=" valid_invalid" >
-                    </span>
-
-                    </label>
-
-
-                    <label>
-                    <span
-                        class="input-name
-                     inline-block" >Эл. почта</span>
-                        <input type="email"
-                               placeholder="Электронная почта"
-                               name="email"
-                               class="input_1 inline-block"
-                               required>
-                    <span class=" valid_invalid" >
-                    </span>
-                    </label>
-
-                    <label>
-                    <span
-                        class="input-name
-                    inline-block" > Пароль</span>
-                        <input type="password"
-                               placeholder="Пароль"
-                               name="password"
-                               class="input_1 inline-block"
-                               required>
-                    <span class=" valid_invalid" >
-                    </span>
-                    </label>
+<!--                    <label>-->
+<!---->
+<!--                    <span-->
+<!--                        class="input-name-->
+<!--                    inline-block" >-->
+<!--                    Логин-->
+<!--                    </span>-->
+<!---->
+<!--                        <input type="text"-->
+<!--                               name="login"-->
+<!--                               placeholder="Логин"-->
+<!--                               class="input_1 inline-block"-->
+<!--                               pattern="^[A-Za-zА-Яа-яЁё]+$"-->
+<!--                               required>-->
+<!---->
+<!--                    <span class=" valid_invalid" >-->
+<!--                    </span>-->
+<!---->
+<!--                    </label>-->
+<!---->
+<!---->
+<!--                    <label>-->
+<!--                    <span-->
+<!--                        class="input-name-->
+<!--                     inline-block" >Эл. почта</span>-->
+<!--                        <input type="email"-->
+<!--                               placeholder="Электронная почта"-->
+<!--                               name="email"-->
+<!--                               class="input_1 inline-block"-->
+<!--                               required>-->
+<!--                    <span class=" valid_invalid" >-->
+<!--                    </span>-->
+<!--                    </label>-->
+<!---->
+<!--                    <label>-->
+<!--                    <span-->
+<!--                        class="input-name-->
+<!--                    inline-block" > Пароль</span>-->
+<!--                        <input type="password"-->
+<!--                               placeholder="Пароль"-->
+<!--                               name="password"-->
+<!--                               class="input_1 inline-block"-->
+<!--                               required>-->
+<!--                    <span class=" valid_invalid" >-->
+<!--                    </span>-->
+<!--                    </label>-->
 
                     <legend>Зарегистрироватся через соц сети</legend>
 
@@ -670,14 +689,22 @@ $this->title = 'Главное меню';
                     <fieldset>
 
                         <!-- Кнопка "Зарегистрироваться"-->
-                        <button type="submit"
-                                form="reg"
-                                name="submit"
-                                class="reg_submit btn_1
-                inline-block "
-                                value="submit">
-                            Зарегистрироваться
-                        </button>
+
+                        <?= Html::submitButton(
+                            'Зарегистрироваться',
+                            [
+                                'class' => 'reg_submit btn_1 inline-block',
+                                'name' => 'submit'
+                            ])
+                        ?>
+<!--                        <button type="submit"-->
+<!--                                form="reg"-->
+<!--                                name="submit"-->
+<!--                                class="reg_submit btn_1-->
+<!--                inline-block "-->
+<!--                                value="submit">-->
+<!--                            Зарегистрироваться-->
+<!--                        </button>-->
 
                     </fieldset>
             <?php ActiveForm::end(); ?>
@@ -685,3 +712,9 @@ $this->title = 'Главное меню';
         </div>
     </div>
 </div>
+<script>
+    <?php if ($signupFailed == true) { ?>
+        document.getElementById('registr').click();
+    <?php } ?>
+</script>
+

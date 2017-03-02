@@ -7,11 +7,8 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
+use frontend\models\LoginForm;
 use frontend\models\SignupForm;
-use frontend\models\ContactForm;
 
 /**
  * Site controller
@@ -26,10 +23,10 @@ class HomeController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
+                'only' => ['login', 'logout', 'signup'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
+                        'actions' => ['signup', 'login'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
@@ -72,8 +69,15 @@ class HomeController extends Controller
      */
     public function actionIndex()
     {
-        $model  = new LoginForm();
-        return $this->render('index', ['model' => $model]);
+        $loginFormModel  = new LoginForm();
+        $signupFormModel = new SignupForm();
+        return $this->render(
+            'index', 
+            [
+                'login' => $loginFormModel,
+                'signup' => $signupFormModel
+            ]
+        );
     }
 
     /**
@@ -87,12 +91,14 @@ class HomeController extends Controller
             return $this->goHome();
         }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+        $loginFormModel  = new LoginForm();
+        $signupFormModel = new SignupForm();
+        if ($loginFormModel->load(Yii::$app->request->post()) && $loginFormModel->login()) {
+            return 1;
         } else {
-            return $this->render('login', [
-                'model' => $model,
+            return $this->render('index', [
+                'login' => $loginFormModel,
+                'signup' => $signupFormModel
             ]);
         }
     }
@@ -117,17 +123,20 @@ class HomeController extends Controller
      */
     public function actionSignup()
     {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
+        $loginFormModel  = new LoginForm();
+        $signupFormModel = new SignupForm();
+        if ($signupFormModel->load(Yii::$app->request->post())) {
+            if ($user = $signupFormModel->signup()) {
                 if (Yii::$app->getUser()->login($user)) {
                     return $this->goHome();
                 }
             }
         }
 
-        return $this->render('signup', [
-            'model' => $model,
+        return $this->render('index', [
+            'login' => $loginFormModel,
+            'signup' => $signupFormModel,
+            'signupFailed' => true
         ]);
     }
 }
