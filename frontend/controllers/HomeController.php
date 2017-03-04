@@ -11,7 +11,7 @@ use frontend\models\LoginForm;
 use frontend\models\SignupForm;
 
 /**
- * Site controller
+ * Home controller
  */
 class HomeController extends Controller
 {
@@ -71,13 +71,8 @@ class HomeController extends Controller
     {
         $loginFormModel  = new LoginForm();
         $signupFormModel = new SignupForm();
-        return $this->render(
-            'index', 
-            [
-                'login' => $loginFormModel,
-                'signup' => $signupFormModel
-            ]
-        );
+
+        return $this->_renderIndex($loginFormModel, $signupFormModel);
     }
 
     /**
@@ -94,12 +89,9 @@ class HomeController extends Controller
         $loginFormModel  = new LoginForm();
         $signupFormModel = new SignupForm();
         if ($loginFormModel->load(Yii::$app->request->post()) && $loginFormModel->login()) {
-            return 1;
+            return $this->_goToProfile();
         } else {
-            return $this->render('index', [
-                'login' => $loginFormModel,
-                'signup' => $signupFormModel
-            ]);
+            return $this->_renderIndex($loginFormModel, $signupFormModel);
         }
     }
 
@@ -128,15 +120,40 @@ class HomeController extends Controller
         if ($signupFormModel->load(Yii::$app->request->post())) {
             if ($user = $signupFormModel->signup()) {
                 if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
+                    return $this->_goToProfile();
                 }
             }
         }
 
+        return $this->_renderIndex($loginFormModel, $signupFormModel, true);
+    }
+
+    /**
+     * Returns a string of the rendered page.
+     *
+     * @param LoginForm  $loginForm    Login form model object.
+     * @param SignupForm $signupForm   Signup form model object.
+     * @param bool       $signupFailed Signup failed flag.
+     *
+     * @return string
+     * @throws InvalidParamException if the view file or the layout file does not exist.
+     */
+    protected function _renderIndex($loginForm, $signupForm, $signupFailed = false)
+    {
         return $this->render('index', [
-            'login' => $loginFormModel,
-            'signup' => $signupFormModel,
-            'signupFailed' => true
+            'login' => $loginForm,
+            'signup' => $signupForm,
+            'signupFailed' => $signupFailed
         ]);
+    }
+
+    /**
+     * Redirects the browser to the profile page.
+     *
+     * @return yii\web\Response the current response object.
+     */
+    protected function _goToProfile()
+    {
+        return Yii::$app->getResponse()->redirect('/profile');
     }
 }
