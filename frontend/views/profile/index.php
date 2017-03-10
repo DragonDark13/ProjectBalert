@@ -1,4 +1,16 @@
+<?php
 
+/* @var $form yii\bootstrap\ActiveForm */
+/* @var $statisticsForm \frontend\models\StatisticsForm */
+/* @var $statistics array */
+
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
+use yii\helpers\Url;
+use frontend\models\StatisticsForm;
+
+$this->title = 'Страница профиля';
+?>
 <section class="all profil_page container">
 
     <!--Заголовок приветствие-->
@@ -29,16 +41,25 @@
             <!--      Блок с кнопками-->
             <div class="header_button-container col-lg-3 col-md-6 col-sm-6  col-xs-12">
 
-                <form name="exit"
-                      action="../php/exit.php"
-                      method="post">
+                <?php $form = ActiveForm::begin(
+                    [
+                        'action' =>   Url::to(['home/logout'])
+                    ]);
+                ?>
 
-                    <button
-                        type="submit"
-                        class="header_button--exit btn_1">Выйти
-                        <i class="fa fa-sign-out"></i>
-                    </button>
-                </form>
+                    <?= Html::submitButton('Выйти', ['class' => 'header_button--exit btn_1']) ?>
+
+<!--                <form name="exit"-->
+<!--                      action="/profile/logout"-->
+<!--                      method="post">-->
+
+<!--                    <button-->
+<!--                        type="submit"-->
+<!--                        class="header_button--exit btn_1">Выйти-->
+<!--                        <i class="fa fa-sign-out"></i>-->
+<!--                    </button>-->
+<!--                </form>-->
+                <?php ActiveForm::end(); ?>
 
             </div>
 
@@ -54,7 +75,7 @@
 
                 <!--    Фото-->
                 <div class="profil-info_foto col-lg-6 col-md-6 col-sm-12  col-xs-12">
-                    <img src="../user_images/<? echo 'f'?>" alt=""/>
+<!--                    <img src="../user_images/--><?// echo 'f'?><!--" alt=""/>-->
 
                     <form>
                         <button
@@ -265,31 +286,36 @@
 //                }
 //            }
             ?>
+            <?php if (count($statistics)) :?>
 
             <article
                 class="all-statistic profil_block--dotted">
 
                 <h3>Общая статистика пользователя по B-alert</h3>
 
-                <?php for($i=0;$i<10;$i++) {?>
+                <?php foreach ($statistics as $key => $value) {
+                            if (is_array($value)) {
+                                continue;
+                            }
+                    ?>
 
                     <!-- Блок с прогресс барами -->
                     <div class="row">
 
                         <span class="label label-success col-lg-3 col-md-3 col-sm-12  col-xs-12">
-                            <?php echo $num = $i + 10?>
+                            <?php echo $key ?>
                         </span>
 
                         <div class="col-lg-8 col-md-8 col-sm-11  col-xs-10">
                             <div class="progress  ">
-                                <div class="progress-bar progress-bar-success" style="width : <?php echo $num + $i .'%'?>" aria-valuemax="100" aria-valuemin="0" aria-valuenow="4" role="progressbar">
+                                <div class="progress-bar progress-bar-success" style="width : <?php echo $value .'%'?>" aria-valuemax="100" aria-valuemin="0" aria-valuenow="4" role="progressbar">
                                     <span class="sr-only">40% Complete (success)</span>
                                 </div>
                             </div>
                         </div>
 
                         <span class="badge col-lg-1 col-md-1 col-sm-1  col-xs-2">
-                            <?php echo $num + $i . '%'?>
+                            <?php echo $value . '%'?>
                         </span>
                     </div>
                     <!-- Конец блока с прогрессбарами -->
@@ -301,13 +327,13 @@
                 <div
                     class="statistic_details"
                 >
-                    Статистика с
+                    Статистика с <?= $statistics['date_info']['from']?>
                     <time
                         class="js-details_DayBegins
                     ">
                     </time>
 
-                    по
+                    по <?= $statistics['date_info']['to']?>
 
                     <time
                         class="js-details_DayCompletion 
@@ -337,6 +363,8 @@
 
             </article>
 
+            <?php endif;?>
+
             <!--Блок - Новости на сегодня-->
             <article
                 class="profil_page_news profil_block--dotted" >
@@ -346,7 +374,17 @@
 
                 <div  class="clearfix">
 
-                    <form method="post" name="statistic" action="" class="todays_news">
+                    <?php $form = ActiveForm::begin(
+                        [
+                            'id' => 'entrance',
+                            'action' =>   Url::to(['profile/saveStatistic']),
+                            'options' => [
+                                'class' => 'todays_news'
+                            ]
+                        ]);
+                    ?>
+
+<!--                    <form method="post" name="statistic" action="" class="todays_news">-->
 
                         <ul class="row" >
                             <li class="col-lg-4 col-md-4 col-sm-4  col-xs-12">
@@ -418,7 +456,8 @@
                             <i class="fa fa-save"></i>
                         </button>
 
-                    </form>
+                    <?php ActiveForm::end(); ?>
+<!--                    </form>-->
 
                 </div>
 

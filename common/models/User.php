@@ -1,6 +1,7 @@
 <?php
 namespace common\models;
 
+use frontend\models\UserStatistics;
 use yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -24,7 +25,7 @@ use yii\web\IdentityInterface;
 class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
-    const STATUS_ACTIVE = 10;
+    const STATUS_ACTIVE = 1;
 
 
     /**
@@ -185,5 +186,22 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    public function getUserStatistics()
+    {
+        return $this->hasMany(UserStatistics::className(), ['user_id' => 'id']);
+    }
+
+    /**
+     * @return array|null|ActiveRecord
+     */
+    public function getUserInfo()
+    {
+        return $this->find()
+            ->with('userStatistics')->orderBy(['created_at' => SORT_ASC])->asArray()
+            ->where(['id' => Yii::$app->user->id])
+            ->andWhere(['status' => self::STATUS_ACTIVE,])
+            ->one();
     }
 }

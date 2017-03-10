@@ -18,6 +18,11 @@ class HomeController extends Controller
     /**
      * @inheritdoc
      */
+    const PROFILE_URL = '/profile';
+
+    /**
+     * @inheritdoc
+     */
     public function behaviors()
     {
         return [
@@ -154,6 +159,6 @@ class HomeController extends Controller
      */
     protected function _goToProfile()
     {
-        return Yii::$app->getResponse()->redirect('/profile');
+        return Yii::$app->getResponse()->redirect(self::PROFILE_URL);
     }
 }
